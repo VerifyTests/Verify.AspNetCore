@@ -1,0 +1,7 @@
+{
+  ResultType: ChallengeResult,
+  Scheme: scheme,
+  Properties: {
+    key: value
+  }
+}
