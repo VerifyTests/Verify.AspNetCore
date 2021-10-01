@@ -41,30 +41,11 @@ static class Extensions
             .ToDictionary(x => x.Key, x => string.Join('|', x.Value));
     }
 
-    public static Dictionary<string, string?> NotCookies(this HttpHeaders headers)
-    {
-        return headers
-            .Where(x => x.Key != HeaderNames.SetCookie)
-            .ToDictionary(x => x.Key, x => x.Value.ToString());
-    }
-
     public static Dictionary<string, string> NotCookies(this IHeaderDictionary headers)
     {
         return headers
             .Where(x => x.Key != HeaderNames.SetCookie)
             .ToDictionary(x => x.Key, x => x.Value.ToString());
-    }
-
-    public static Dictionary<string, string> Cookies(this HttpHeaders headers)
-    {
-        return headers
-            .Where(x => x.Key == HeaderNames.SetCookie)
-            .Select(x =>
-            {
-                var stringSegment = x.Value.Single();
-                return SetCookieHeaderValue.Parse(stringSegment);
-            })
-            .ToDictionary(x => x.Name.Value, x => x.Value.Value);
     }
 
     public static Dictionary<string, string> Cookies(this IHeaderDictionary headers)

@@ -7,17 +7,7 @@ public static class ModuleInitializer
     public static void Initialize()
     {
         #region Enable
-        VerifyWeb.Enable();
+        VerifyAspNetCore.Enable();
         #endregion
     }
 }
-
-#if(NETCOREAPP3_1)
-namespace System.Runtime.CompilerServices
-{
-    [AttributeUsage(AttributeTargets.Method, Inherited = false)]
-    public sealed class ModuleInitializerAttribute : Attribute
-    {
-    }
-}
-#endif
