@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
 
 namespace VerifyTests;
 
@@ -146,13 +145,4 @@ public static class VerifyAspNetCore
             ContentType = target.ContentType
         };
     }
-}
-
-class FileResultInfo
-{
-    public string FileDownloadName { get; set; } = null!;
-    public DateTimeOffset? LastModified { get; set; }
-    public EntityTagHeaderValue? EntityTag { get; set; }
-    public bool EnableRangeProcessing { get; set; }
-    public string ContentType { get; set; } = null!;
 }
