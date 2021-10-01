@@ -75,7 +75,7 @@ This test:
 <!-- snippet: MyControllerTest -->
 <a id='snippet-mycontrollertest'></a>
 ```cs
-[Test]
+[Fact]
 public Task Test()
 {
     var context = new ControllerContext
@@ -161,7 +161,7 @@ This test:
 <!-- snippet: MyMiddlewareTest -->
 <a id='snippet-mymiddlewaretest'></a>
 ```cs
-[Test]
+[Fact]
 public async Task Test()
 {
     var nextCalled = false;

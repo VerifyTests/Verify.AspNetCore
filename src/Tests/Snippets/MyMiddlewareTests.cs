@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
-using VerifyNUnit;
-using NUnit.Framework;
+using VerifyXunit;
+using Xunit;
 
-[TestFixture]
+[UsesVerify]
 public class MyMiddlewareTests
 {
     #region MyMiddlewareTest
-    [Test]
+    [Fact]
     public async Task Test()
     {
         var nextCalled = false;

@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using VerifyNUnit;
-using NUnit.Framework;
+using VerifyXunit;
+using Xunit;
 
-[TestFixture]
+[UsesVerify]
 public class MyControllerTests
 {
     #region MyControllerTest
-    [Test]
+    [Fact]
     public Task Test()
     {
         var context = new ControllerContext

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using VerifyNUnit;
-using NUnit.Framework;
+using VerifyXunit;
+using Xunit;
 
-[TestFixture]
+[UsesVerify]
 public class Tests
 {
-    [Test]
+    [Fact]
     public Task ChallengeResult()
     {
         var result = new ChallengeResult(
@@ -18,33 +18,32 @@ public class Tests
                 }));
         return Verifier.Verify(result);
     }
-
-    [Test]
+    
+    [Fact]
     public Task FileContentResult()
     {
         var result = new FileContentResult(Encoding.UTF8.GetBytes("the content"), "text/plain");
         return Verifier.Verify(result);
     }
-
-    [Test]
+    
+    [Fact]
     public Task FileStreamResult()
     {
         var result = new FileStreamResult(new MemoryStream(Encoding.UTF8.GetBytes("the content")), "text/plain");
         return Verifier.Verify(result);
     }
-
-    [Test]
+    
+    [Fact]
     public Task PhysicalFileResult()
     {
         var result = new PhysicalFileResult("target.txt", "text/plain");
         return Verifier.Verify(result);
     }
-
-    [Test]
+    
+    [Fact]
     public Task VirtualFileResult()
     {
         var result = new VirtualFileResult("target.txt", "text/plain");
         return Verifier.Verify(result);
     }
-    
 }
