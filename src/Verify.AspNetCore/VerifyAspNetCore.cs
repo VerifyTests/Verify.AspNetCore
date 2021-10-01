@@ -79,15 +79,15 @@ namespace VerifyTests
 
             if (!HttpExtensions.TryGetMediaTypeExtension(target.ContentType, out var extension))
             {
-                return new ConversionResult(info, Enumerable.Empty<Target>());
+                return new(info, Enumerable.Empty<Target>());
             }
 
             if (EmptyFiles.Extensions.IsText(extension))
             {
-                return new ConversionResult(info, extension, Encoding.UTF8.GetString(target.FileContents));
+                return new(info, extension, Encoding.UTF8.GetString(target.FileContents));
             }
 
-            return new ConversionResult(info, extension, new MemoryStream(target.FileContents));
+            return new(info, extension, new MemoryStream(target.FileContents));
         }
 
         static async Task<ConversionResult> ConvertFileResult(VirtualFileResult target, IReadOnlyDictionary<string, object> context)
@@ -96,12 +96,12 @@ namespace VerifyTests
 
             if (!HttpExtensions.TryGetMediaTypeExtension(target.ContentType, out var extension))
             {
-                return new ConversionResult(info, Enumerable.Empty<Target>());
+                return new(info, Enumerable.Empty<Target>());
             }
 
             if (EmptyFiles.Extensions.IsText(extension))
             {
-                return new ConversionResult(info, extension, await File.ReadAllTextAsync(target.FileName));
+                return new(info, extension, await File.ReadAllTextAsync(target.FileName));
             }
 
             return new ConversionResult(info, extension, File.OpenRead(target.FileName));
@@ -113,15 +113,15 @@ namespace VerifyTests
 
             if (!HttpExtensions.TryGetMediaTypeExtension(target.ContentType, out var extension))
             {
-                return new ConversionResult(info, Enumerable.Empty<Target>());
+                return new(info, Enumerable.Empty<Target>());
             }
 
             if (EmptyFiles.Extensions.IsText(extension))
             {
-                return new ConversionResult(info, extension, await File.ReadAllTextAsync(target.FileName));
+                return new(info, extension, await File.ReadAllTextAsync(target.FileName));
             }
 
-            return new ConversionResult(info, extension, File.OpenRead(target.FileName));
+            return new(info, extension, File.OpenRead(target.FileName));
         }
 
         static async Task<ConversionResult> ConvertFileResult(FileStreamResult target, IReadOnlyDictionary<string, object> context)
@@ -130,15 +130,15 @@ namespace VerifyTests
 
             if (!HttpExtensions.TryGetMediaTypeExtension(target.ContentType, out var extension))
             {
-                return new ConversionResult(info, Enumerable.Empty<Target>());
+                return new(info, Enumerable.Empty<Target>());
             }
 
             if (!EmptyFiles.Extensions.IsText(extension))
             {
-                return new ConversionResult(info, extension, target.FileStream);
+                return new(info, extension, target.FileStream);
             }
 
-            return new ConversionResult(info, extension, await target.FileStream.ReadAsString());
+            return new(info, extension, await target.FileStream.ReadAsString());
         }
 
         static FileResultInfo GetFileResultInfo(FileResult target)
