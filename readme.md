@@ -53,7 +53,7 @@ public class MyController :
             new("Value1"),
             new("Value2")
         };
-        return new ActionResult<List<DataItem>>(items);
+        return new(items);
     }
 
     public class DataItem
