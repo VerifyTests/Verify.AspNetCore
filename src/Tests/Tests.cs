@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using VerifyXunit;
 using Xunit;
 
@@ -11,7 +10,7 @@ public class Tests
     {
         var result = new ChallengeResult(
             "scheme",
-            new AuthenticationProperties(
+            new(
                 new Dictionary<string, string?>
                 {
                     {"key", "value"}

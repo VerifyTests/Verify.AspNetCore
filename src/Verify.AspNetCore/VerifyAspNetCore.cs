@@ -97,7 +97,7 @@ public static class VerifyAspNetCore
             return new(info, extension, await File.ReadAllTextAsync(target.FileName));
         }
 
-        return new ConversionResult(info, extension, File.OpenRead(target.FileName));
+        return new(info, extension, File.OpenRead(target.FileName));
     }
 
     static async Task<ConversionResult> ConvertFileResult(PhysicalFileResult target, IReadOnlyDictionary<string, object> context)
