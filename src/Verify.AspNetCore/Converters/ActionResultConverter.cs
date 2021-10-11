@@ -5,13 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 class ActionResultConverter :
     WriteOnlyJsonConverter
 {
-    public override void WriteJson(JsonWriter writer, object? action, JsonSerializer serializer, IReadOnlyDictionary<string, object> context)
+    public override void WriteJson(JsonWriter writer, object action, JsonSerializer serializer, IReadOnlyDictionary<string, object> context)
     {
-        if (action == null)
-        {
-            return;
-        }
-
         var property = action.GetType().GetProperty("Value", BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.Public);
         var value = property!.GetValue(action);
         serializer.Serialize(writer, value);

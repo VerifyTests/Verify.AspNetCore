@@ -5,13 +5,8 @@ using VerifyTests;
 class HttpRequestConverter :
     WriteOnlyJsonConverter<HttpRequest>
 {
-    public override void WriteJson(JsonWriter writer, HttpRequest? value, JsonSerializer serializer, IReadOnlyDictionary<string, object> context)
+    public override void WriteJson(JsonWriter writer, HttpRequest value, JsonSerializer serializer, IReadOnlyDictionary<string, object> context)
     {
-        if (value == null)
-        {
-            return;
-        }
-
         writer.WriteStartObject();
 
         WriteProperties(writer, serializer, value);

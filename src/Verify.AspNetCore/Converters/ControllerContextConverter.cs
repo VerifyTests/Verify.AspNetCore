@@ -5,13 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 class ControllerContextConverter :
     WriteOnlyJsonConverter<ControllerContext>
 {
-    public override void WriteJson(JsonWriter writer, ControllerContext? context, JsonSerializer serializer, IReadOnlyDictionary<string, object> verifyContext)
+    public override void WriteJson(JsonWriter writer, ControllerContext context, JsonSerializer serializer, IReadOnlyDictionary<string, object> verifyContext)
     {
-        if (context == null)
-        {
-            return;
-        }
-
         var response = context.HttpContext.Response;
         writer.WriteStartObject();
 
