@@ -32,8 +32,7 @@ public class Tests
                 Value = "The Value"
             });
 
-        Assert.Null(rendered.Title);
-        await Verifier.Verify(rendered.Body);
+        await Verifier.Verify(rendered);
     }
 
     [Fact]
