@@ -33,14 +33,15 @@ namespace Westerhoff.AspNetCore.TemplateRendering
             this.tempDataFactory = tempDataFactory;
         }
 
-        /// <inheritdoc/>
-        public async Task<RazorTemplateRenderResult> RenderAsync(string viewPath, PageModel model)
+        public async Task<RazorTemplateRenderResult> RenderAsync<T>(string viewPath, T model)
+        where T:PageModel
         {
             var viewResult = FindView(viewPath);
-
+            
+            await using var writer = new StringWriter();
             var metadataProvider = new EmptyModelMetadataProvider();
             model.MetadataProvider = metadataProvider;
-            var viewData = new ViewDataDictionary(metadataProvider, new ModelStateDictionary())
+            var viewData = new ViewDataDictionary<T>(metadataProvider, new ModelStateDictionary())
             {
                 Model = model
             };
@@ -49,23 +50,32 @@ namespace Westerhoff.AspNetCore.TemplateRendering
                 RequestServices = services
             };
             var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
-
-            // render view to string
-            using var stringWriter = new StringWriter();
+            var pageContext = new PageContext(actionContext)
+            {
+                ViewData = viewData
+            };
+            model.PageContext = pageContext;
+            var tempData = tempDataFactory.GetTempData(httpContext);
+            model.TempData = tempData;
             var viewContext = new ViewContext(
                 actionContext: actionContext,
                 view: viewResult.View,
                 viewData: viewData,
-                tempData: tempDataFactory.GetTempData(httpContext),
-                writer: stringWriter,
+                tempData: tempData,
+                writer: writer,
                 htmlHelperOptions: new HtmlHelperOptions());
+
+            if (viewResult.View is RazorView { RazorPage: PageBase pageBase })
+            {
+                pageBase.PageContext = pageContext;
+            }
 
             await viewResult.View.RenderAsync(viewContext);
 
             return new RazorTemplateRenderResult
             {
                 Title = viewContext.ViewData["Title"]?.ToString()!,
-                Body = stringWriter.ToString(),
+                Body = writer.ToString(),
             };
         }
 
@@ -79,8 +89,5 @@ namespace Westerhoff.AspNetCore.TemplateRendering
 
             throw new($"View could not be found:{viewPath}");
         }
-
-        public async Task<string> RenderStringAsync(string viewPath, PageModel model)
-            => (await RenderAsync(viewPath, model)).Body;
     }
 }

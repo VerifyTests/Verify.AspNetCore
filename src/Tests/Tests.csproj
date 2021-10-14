@@ -14,8 +14,6 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <ProjectReference Include="..\Verify.AspNetCore\Verify.AspNetCore.csproj" />
     <PackageReference Include="ProjectDefaults" Version="1.0.61" PrivateAssets="All" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="target.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

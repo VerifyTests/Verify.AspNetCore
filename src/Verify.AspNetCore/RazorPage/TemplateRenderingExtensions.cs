@@ -1,4 +1,3 @@
-using System;
 using Westerhoff.AspNetCore.TemplateRendering;
 
 namespace Microsoft.Extensions.DependencyInjection

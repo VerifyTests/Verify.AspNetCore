@@ -25,7 +25,10 @@ public class Tests
     {
         using var host = Utility.CreateHost();
         var renderer = host.Services.GetRequiredService<RazorTemplateRenderer>();
-        var rendered = await renderer.RenderAsync(
+
+
+            
+        var rendered = await renderer.RenderAsync<MvcRazorPageModel>(
             "/MvcRazorPage.cshtml",
             new MvcRazorPageModel
             {

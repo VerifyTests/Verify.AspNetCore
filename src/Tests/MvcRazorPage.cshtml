@@ -1,6 +1,7 @@
 ﻿@page
 @model MvcRazorPageModel
 @{
+    var type = this.GetType();
     ViewData["Title"] = Model.Value + " title";
 }
 <p>@Model.Value</p>
