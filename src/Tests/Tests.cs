@@ -21,10 +21,25 @@ public class Tests
     }
 
     [Fact]
+    public async Task MvcRazorPage()
+    {
+        using var host = Utility.CreateHost();
+        var renderer = host.Services.GetRequiredService<RazorTemplateRenderer>();
+        var rendered = await renderer.RenderAsync(
+            "/MvcRazorPage.cshtml",
+            new MvcRazorPageModel
+            {
+                Value = "The Value"
+            });
+
+        await Verifier.Verify(rendered);
+    }
+
+    [Fact]
     public async Task RazorPage()
     {
         using var host = Utility.CreateHost();
-        var renderer = host.Services.GetRequiredService<IRazorTemplateRenderer>();
+        var renderer = host.Services.GetRequiredService<RazorTemplateRenderer>();
         var rendered = await renderer.RenderAsync(
             "/RazorPage.cshtml",
             new RazorPageModel

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
@@ -12,41 +13,41 @@ namespace Westerhoff.AspNetCore.TemplateRendering
     /// <summary>
     /// Razor template renderer, using the existing view engine.
     /// </summary>
-    public class RazorTemplateRenderer : IRazorTemplateRenderer
+    public class RazorTemplateRenderer
     {
-        private readonly IRazorViewEngine _razorViewEngine;
-        private readonly IServiceProvider _serviceProvider;
-        private readonly ITempDataDictionaryFactory _tempDataDictionaryFactory;
+        IRazorViewEngine viewEngine;
+        IServiceProvider services;
+        ITempDataDictionaryFactory tempDataFactory;
 
         /// <summary>
         /// Create a razor template renderer.
         /// </summary>
-        /// <param name="razorViewEngine">Razor view engine.</param>
-        /// <param name="serviceProvider">Service provider.</param>
-        /// <param name="tempDataDictionaryFactory">Temp data dictionary factory.</param>
-        public RazorTemplateRenderer(IRazorViewEngine razorViewEngine, IServiceProvider serviceProvider, ITempDataDictionaryFactory tempDataDictionaryFactory)
+        /// <param name="viewEngine">Razor view engine.</param>
+        /// <param name="services">Service provider.</param>
+        /// <param name="tempDataFactory">Temp data dictionary factory.</param>
+        public RazorTemplateRenderer(IRazorViewEngine viewEngine, IServiceProvider services, ITempDataDictionaryFactory tempDataFactory)
         {
-            _razorViewEngine = razorViewEngine;
-            _serviceProvider = serviceProvider;
-            _tempDataDictionaryFactory = tempDataDictionaryFactory;
+            this.viewEngine = viewEngine;
+            this.services = services;
+            this.tempDataFactory = tempDataFactory;
         }
 
         /// <inheritdoc/>
-        public async Task<RazorTemplateRenderResult> RenderAsync(string viewPath, object model)
+        public async Task<RazorTemplateRenderResult> RenderAsync(string viewPath, PageModel model)
         {
             // find view
-            var viewResult = _razorViewEngine.GetView(executingFilePath: null, viewPath: viewPath, isMainPage: true);
+            var viewResult = viewEngine.GetView(executingFilePath: null, viewPath: viewPath, isMainPage: true);
             if (!viewResult.Success)
                 throw new ArgumentException("View could not be found", nameof(viewPath));
 
             // prepare context
             var viewData = new ViewDataDictionary(new EmptyModelMetadataProvider(), new ModelStateDictionary())
             {
-                Model = model,
+                Model = model
             };
             var httpContext = new DefaultHttpContext
             {
-                RequestServices = _serviceProvider,
+                RequestServices = services
             };
             var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
 
@@ -56,7 +57,7 @@ namespace Westerhoff.AspNetCore.TemplateRendering
                 actionContext: actionContext,
                 view: viewResult.View,
                 viewData: viewData,
-                tempData: _tempDataDictionaryFactory.GetTempData(httpContext),
+                tempData: tempDataFactory.GetTempData(httpContext),
                 writer: stringWriter,
                 htmlHelperOptions: new HtmlHelperOptions());
 
@@ -70,7 +71,7 @@ namespace Westerhoff.AspNetCore.TemplateRendering
         }
 
         /// <inheritdoc/>
-        public async Task<string> RenderStringAsync(string viewPath, object model)
+        public async Task<string> RenderStringAsync(string viewPath, PageModel model)
             => (await RenderAsync(viewPath, model)).Body;
     }
 }

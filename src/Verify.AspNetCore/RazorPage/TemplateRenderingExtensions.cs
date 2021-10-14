@@ -19,7 +19,7 @@ namespace Microsoft.Extensions.DependencyInjection
             if (services is null)
                 throw new ArgumentNullException(nameof(services));
 
-            services.AddTransient<IRazorTemplateRenderer, RazorTemplateRenderer>();
+            services.AddTransient<RazorTemplateRenderer>();
 
             return services;
         }
