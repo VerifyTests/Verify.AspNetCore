@@ -40,8 +40,9 @@ namespace Westerhoff.AspNetCore.TemplateRendering
             if (!viewResult.Success)
                 throw new ArgumentException("View could not be found", nameof(viewPath));
 
-            // prepare context
-            var viewData = new ViewDataDictionary(new EmptyModelMetadataProvider(), new ModelStateDictionary())
+            var metadataProvider = new EmptyModelMetadataProvider();
+            model.MetadataProvider = metadataProvider;
+            var viewData = new ViewDataDictionary(metadataProvider, new ModelStateDictionary())
             {
                 Model = model
             };
