@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using VerifyXunit;
+using Westerhoff.AspNetCore.TemplateRendering;
 using Xunit;
 
 [UsesVerify]
@@ -17,7 +19,23 @@ public class Tests
                 }));
         return Verifier.Verify(result);
     }
-    
+
+    [Fact]
+    public async Task RazorPage()
+    {
+        using var host = Utility.CreateHost();
+        var renderer = host.Services.GetRequiredService<IRazorTemplateRenderer>();
+        var rendered = await renderer.RenderAsync(
+            "/RazorPage.cshtml",
+            new RazorPageModel
+            {
+                Value = "The Value"
+            });
+
+        Assert.Null(rendered.Title);
+        await Verifier.Verify(rendered.Body);
+    }
+
     [Fact]
     public Task FileContentResult()
     {
