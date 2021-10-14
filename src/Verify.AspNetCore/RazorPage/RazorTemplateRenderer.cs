@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Routing;
 
 namespace Westerhoff.AspNetCore.TemplateRendering
 {
@@ -41,7 +39,7 @@ namespace Westerhoff.AspNetCore.TemplateRendering
             await using var writer = new StringWriter();
             var metadataProvider = new EmptyModelMetadataProvider();
             model.MetadataProvider = metadataProvider;
-            var viewData = new ViewDataDictionary<T>(metadataProvider, new ModelStateDictionary())
+            var viewData = new ViewDataDictionary<T>(metadataProvider, new())
             {
                 Model = model
             };
@@ -49,7 +47,7 @@ namespace Westerhoff.AspNetCore.TemplateRendering
             {
                 RequestServices = services
             };
-            var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
+            var actionContext = new ActionContext(httpContext, new(), new());
             var pageContext = new PageContext(actionContext)
             {
                 ViewData = viewData
@@ -63,7 +61,7 @@ namespace Westerhoff.AspNetCore.TemplateRendering
                 viewData: viewData,
                 tempData: tempData,
                 writer: writer,
-                htmlHelperOptions: new HtmlHelperOptions());
+                htmlHelperOptions: new());
 
             if (viewResult.View is RazorView { RazorPage: PageBase pageBase })
             {
@@ -72,7 +70,7 @@ namespace Westerhoff.AspNetCore.TemplateRendering
 
             await viewResult.View.RenderAsync(viewContext);
 
-            return new RazorTemplateRenderResult
+            return new()
             {
                 Title = viewContext.ViewData["Title"]?.ToString()!,
                 Body = writer.ToString(),
