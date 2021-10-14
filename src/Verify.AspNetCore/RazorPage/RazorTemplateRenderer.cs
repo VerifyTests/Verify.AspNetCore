@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
 
@@ -35,10 +36,7 @@ namespace Westerhoff.AspNetCore.TemplateRendering
         /// <inheritdoc/>
         public async Task<RazorTemplateRenderResult> RenderAsync(string viewPath, PageModel model)
         {
-            // find view
-            var viewResult = viewEngine.GetView(executingFilePath: null, viewPath: viewPath, isMainPage: true);
-            if (!viewResult.Success)
-                throw new ArgumentException("View could not be found", nameof(viewPath));
+            var viewResult = FindView(viewPath);
 
             var metadataProvider = new EmptyModelMetadataProvider();
             model.MetadataProvider = metadataProvider;
@@ -71,7 +69,17 @@ namespace Westerhoff.AspNetCore.TemplateRendering
             };
         }
 
-        /// <inheritdoc/>
+        private ViewEngineResult FindView(string viewPath)
+        {
+            var viewResult = viewEngine.GetView(executingFilePath: null, viewPath: viewPath, isMainPage: true);
+            if (viewResult.Success)
+            {
+                return viewResult;
+            }
+
+            throw new($"View could not be found:{viewPath}");
+        }
+
         public async Task<string> RenderStringAsync(string viewPath, PageModel model)
             => (await RenderAsync(viewPath, model)).Body;
     }
