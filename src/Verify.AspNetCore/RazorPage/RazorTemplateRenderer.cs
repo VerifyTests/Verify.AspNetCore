@@ -24,7 +24,8 @@ namespace Westerhoff.AspNetCore.TemplateRendering
         /// <param name="viewEngine">Razor view engine.</param>
         /// <param name="services">Service provider.</param>
         /// <param name="tempDataFactory">Temp data dictionary factory.</param>
-        public RazorTemplateRenderer(IRazorViewEngine viewEngine, IServiceProvider services, ITempDataDictionaryFactory tempDataFactory)
+        public RazorTemplateRenderer(IRazorViewEngine viewEngine, IServiceProvider services,
+            ITempDataDictionaryFactory tempDataFactory)
         {
             this.viewEngine = viewEngine;
             this.services = services;
@@ -32,10 +33,10 @@ namespace Westerhoff.AspNetCore.TemplateRendering
         }
 
         public async Task<RazorTemplateRenderResult> RenderAsync<T>(string viewPath, T model)
-        where T:PageModel
+            where T : PageModel
         {
             var viewResult = FindView(viewPath);
-            
+
             await using var writer = new StringWriter();
             var metadataProvider = new EmptyModelMetadataProvider();
             model.MetadataProvider = metadataProvider;
@@ -63,7 +64,7 @@ namespace Westerhoff.AspNetCore.TemplateRendering
                 writer: writer,
                 htmlHelperOptions: new());
 
-            if (viewResult.View is RazorView { RazorPage: PageBase pageBase })
+            if (viewResult.View is RazorView {RazorPage: PageBase pageBase})
             {
                 pageBase.PageContext = pageContext;
             }
@@ -79,13 +80,14 @@ namespace Westerhoff.AspNetCore.TemplateRendering
 
         private ViewEngineResult FindView(string viewPath)
         {
-            var viewResult = viewEngine.GetView(executingFilePath: null, viewPath: viewPath, isMainPage: true);
-            if (viewResult.Success)
+            var result = viewEngine.GetView(executingFilePath: null, viewPath: viewPath, isMainPage: true);
+            if (result.Success)
             {
-                return viewResult;
+                return result;
             }
 
-            throw new($"View could not be found:{viewPath}");
+            throw new(
+                $"View could not be found:{viewPath}{string.Join(Environment.NewLine, result.SearchedLocations)}");
         }
     }
 }
