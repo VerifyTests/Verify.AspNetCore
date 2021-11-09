@@ -10,10 +10,11 @@ class SignInResultConverter :
         serializer.Serialize(writer, result.AuthenticationScheme);
         //TODO: Claims
         //serializer.Serialize(writer, result.Principal.Claims);
-        if (result.Properties.Items.Any())
+        var properties = result.Properties;
+        if (properties != null && properties.Items.Any())
         {
             writer.WritePropertyName("Properties");
-            serializer.Serialize(writer, result.Properties.Items);
+            serializer.Serialize(writer, properties.Items);
         }
     }
 }

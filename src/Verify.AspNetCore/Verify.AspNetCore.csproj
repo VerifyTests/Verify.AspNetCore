@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFrameworks>net5</TargetFrameworks>
+    <TargetFrameworks>net6</TargetFrameworks>
     <OutputType>Library</OutputType>
     <Nullable>enable</Nullable>
     <IsPackable>true</IsPackable>

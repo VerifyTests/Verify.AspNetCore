@@ -8,10 +8,11 @@ class CreatedAtRouteResultConverter :
     {
         writer.WritePropertyName("RouteName");
         serializer.Serialize(writer, result.RouteName);
-        if (result.RouteValues.Any())
+        var values = result.RouteValues;
+        if (values != null && values.Any())
         {
             writer.WritePropertyName("RouteValues");
-            serializer.Serialize(writer, result.RouteValues.ToDictionary(x => x.Key, x => x.Value));
+            serializer.Serialize(writer, values.ToDictionary(x => x.Key, x => x.Value));
         }
 
         ObjectResultConverter.Write(writer, result, serializer);

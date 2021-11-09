@@ -16,8 +16,11 @@ class ViewComponentResultConverter :
         serializer.Serialize(writer, result.ContentType);
         writer.WritePropertyName("ViewComponentName");
         serializer.Serialize(writer, result.ViewComponentName);
-        writer.WritePropertyName("ViewComponentType");
-        serializer.Serialize(writer, result.ViewComponentType.FullName);
+        if (result.ViewComponentType != null)
+        {
+            writer.WritePropertyName("ViewComponentType");
+            serializer.Serialize(writer, result.ViewComponentType.FullName);
+        }
         if (result.TempData.Any())
         {
             writer.WritePropertyName("TempData");

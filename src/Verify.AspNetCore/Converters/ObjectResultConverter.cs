@@ -21,7 +21,11 @@ class ObjectResultConverter :
 
         writer.WritePropertyName("ContentTypes");
         serializer.Serialize(writer, result.ContentTypes);
-        writer.WritePropertyName("DeclaredType");
-        serializer.Serialize(writer, result.DeclaredType.FullName);
+        var declaredType = result.DeclaredType;
+        if (declaredType != null)
+        {
+            writer.WritePropertyName("DeclaredType"); 
+            serializer.Serialize(writer, declaredType.FullName);
+        }
     }
 }

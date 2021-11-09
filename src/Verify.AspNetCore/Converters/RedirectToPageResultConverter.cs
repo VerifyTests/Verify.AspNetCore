@@ -18,10 +18,11 @@ class RedirectToPageResultConverter :
         serializer.Serialize(writer, result.PageHandler);
         writer.WritePropertyName("PageName");
         serializer.Serialize(writer, result.PageName);
-        if (result.RouteValues.Any())
+        var values = result.RouteValues;
+        if (values != null && values.Any())
         {
             writer.WritePropertyName("RouteValues");
-            serializer.Serialize(writer, result.RouteValues.ToDictionary(x => x.Key, x => x.Value));
+            serializer.Serialize(writer, values.ToDictionary(x => x.Key, x => x.Value));
         }
     }
 }

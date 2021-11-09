@@ -16,10 +16,11 @@ class RedirectToActionResultConverter :
         serializer.Serialize(writer, result.Permanent);
         writer.WritePropertyName("PreserveMethod");
         serializer.Serialize(writer, result.PreserveMethod);
-        if (result.RouteValues.Any())
+        var values = result.RouteValues;
+        if (values != null && values.Any())
         {
             writer.WritePropertyName("RouteValues");
-            serializer.Serialize(writer, result.RouteValues.ToDictionary(x => x.Value!, x => x.Value));
+            serializer.Serialize(writer, values.ToDictionary(x => x.Value!, x => x.Value));
         }
     }
 }
