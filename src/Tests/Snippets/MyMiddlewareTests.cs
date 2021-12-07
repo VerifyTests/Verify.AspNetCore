@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using VerifyXunit;
-using Xunit;
-
-[UsesVerify]
+﻿[UsesVerify]
 public class MyMiddlewareTests
 {
     #region MyMiddlewareTest

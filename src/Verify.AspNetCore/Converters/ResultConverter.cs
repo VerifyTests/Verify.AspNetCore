@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using VerifyTests;
 using Microsoft.AspNetCore.Mvc;
 
 abstract class ResultConverter<T> :

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-public class MyMiddleware
+﻿public class MyMiddleware
 {
     RequestDelegate next;
 

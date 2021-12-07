@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VerifyXunit;
-using Xunit;
 
 [UsesVerify]
 public class Tests

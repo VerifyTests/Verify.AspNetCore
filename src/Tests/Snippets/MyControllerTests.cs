@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using VerifyXunit;
-using Xunit;
+﻿using Microsoft.AspNetCore.Mvc;
 
 [UsesVerify]
 public class MyControllerTests

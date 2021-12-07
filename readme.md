@@ -23,7 +23,7 @@ Enable VerifyAspNetCore once at assembly load time:
 ```cs
 VerifyAspNetCore.Enable();
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L8-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L6-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -96,7 +96,7 @@ public Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L9-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-mycontrollertest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L6-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-mycontrollertest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:
@@ -135,8 +135,6 @@ Given the following middleware:
 <!-- snippet: MyMiddleware.cs -->
 <a id='snippet-MyMiddleware.cs'></a>
 ```cs
-using Microsoft.AspNetCore.Http;
-
 public class MyMiddleware
 {
     RequestDelegate next;
@@ -153,7 +151,7 @@ public class MyMiddleware
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyMiddleware.cs#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddleware.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyMiddleware.cs#L1-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddleware.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -183,7 +181,7 @@ public async Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.cs#L8-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-mymiddlewaretest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.cs#L4-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-mymiddlewaretest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:

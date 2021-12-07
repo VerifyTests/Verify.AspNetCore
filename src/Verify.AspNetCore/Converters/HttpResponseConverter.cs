@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using VerifyTests;
+﻿using Newtonsoft.Json;
 
 class HttpResponseConverter :
     WriteOnlyJsonConverter<HttpResponse>
