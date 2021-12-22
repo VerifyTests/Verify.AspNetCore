@@ -17,7 +17,7 @@ public class MyControllerTests
         };
 
         var result = controller.Method("inputValue");
-        return Verifier.Verify(
+        return Verify(
             new
             {
                 result,

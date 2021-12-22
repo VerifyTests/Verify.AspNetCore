@@ -13,34 +13,34 @@ public class Tests
                 {
                     {"key", "value"}
                 }));
-        return Verifier.Verify(result);
+        return Verify(result);
     }
     
     [Fact]
     public Task FileContentResult()
     {
         var result = new FileContentResult(Encoding.UTF8.GetBytes("the content"), "text/plain");
-        return Verifier.Verify(result);
+        return Verify(result);
     }
     
     [Fact]
     public Task FileStreamResult()
     {
         var result = new FileStreamResult(new MemoryStream(Encoding.UTF8.GetBytes("the content")), "text/plain");
-        return Verifier.Verify(result);
+        return Verify(result);
     }
     
     [Fact]
     public Task PhysicalFileResult()
     {
         var result = new PhysicalFileResult("target.txt", "text/plain");
-        return Verifier.Verify(result);
+        return Verify(result);
     }
     
     [Fact]
     public Task VirtualFileResult()
     {
         var result = new VirtualFileResult("target.txt", "text/plain");
-        return Verifier.Verify(result);
+        return Verify(result);
     }
 }

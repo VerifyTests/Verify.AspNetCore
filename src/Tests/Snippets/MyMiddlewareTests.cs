@@ -16,7 +16,7 @@ public class MyMiddlewareTests
         var context = new DefaultHttpContext();
         await middleware.Invoke(context);
 
-        await Verifier.Verify(
+        await Verify(
             new
             {
                 context.Response,
