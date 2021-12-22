@@ -88,7 +88,7 @@ public Task Test()
     };
 
     var result = controller.Method("inputValue");
-    return Verifier.Verify(
+    return Verify(
         new
         {
             result,
@@ -173,7 +173,7 @@ public async Task Test()
     var context = new DefaultHttpContext();
     await middleware.Invoke(context);
 
-    await Verifier.Verify(
+    await Verify(
         new
         {
             context.Response,
