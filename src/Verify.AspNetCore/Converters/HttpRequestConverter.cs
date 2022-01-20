@@ -3,7 +3,7 @@
 class HttpRequestConverter :
     WriteOnlyJsonConverter<HttpRequest>
 {
-    public override void WriteJson(JsonWriter writer, HttpRequest value, JsonSerializer serializer, IReadOnlyDictionary<string, object> context)
+    public override void Write(VerifyJsonWriter writer, HttpRequest value, JsonSerializer serializer)
     {
         writer.WriteStartObject();
 

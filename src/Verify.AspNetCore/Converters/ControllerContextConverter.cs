@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 class ControllerContextConverter :
     WriteOnlyJsonConverter<ControllerContext>
 {
-    public override void WriteJson(JsonWriter writer, ControllerContext context, JsonSerializer serializer, IReadOnlyDictionary<string, object> verifyContext)
+    public override void Write(VerifyJsonWriter writer, ControllerContext context, JsonSerializer serializer)
     {
         var response = context.HttpContext.Response;
         writer.WriteStartObject();

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 class ActionResultConverter :
     WriteOnlyJsonConverter
 {
-    public override void WriteJson(JsonWriter writer, object action, JsonSerializer serializer, IReadOnlyDictionary<string, object> context)
+    public override void Write(VerifyJsonWriter writer, object action, JsonSerializer serializer)
     {
         var property = action.GetType().GetProperty("Value", BindingFlags.Instance | BindingFlags.FlattenHierarchy | BindingFlags.Public);
         var value = property!.GetValue(action);

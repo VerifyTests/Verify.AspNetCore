@@ -24,7 +24,7 @@ class ObjectResultConverter :
         var declaredType = result.DeclaredType;
         if (declaredType != null)
         {
-            writer.WritePropertyName("DeclaredType"); 
+            writer.WritePropertyName("DeclaredType");
             serializer.Serialize(writer, declaredType.FullName);
         }
     }
