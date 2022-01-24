@@ -1,20 +1,12 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class JsonResultConverter :
     ResultConverter<JsonResult>
 {
-    protected override void InnerWrite(JsonWriter writer, JsonResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, JsonResult result)
     {
-        if (result.StatusCode != null)
-        {
-            writer.WritePropertyName("StatusCode");
-            serializer.Serialize(writer, result.StatusCode);
-        }
-
-        writer.WritePropertyName("Value");
-        serializer.Serialize(writer, result.Value);
-        writer.WritePropertyName("ContentType");
-        serializer.Serialize(writer, result.ContentType);
+        writer.WriteProperty(result, result.StatusCode, "StatusCode");
+        writer.WriteProperty(result, result.Value, "Value");
+        writer.WriteProperty(result, result.ContentType, "ContentType");
     }
 }

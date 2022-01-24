@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class BadRequestObjectResultConverter :
     ResultConverter<BadRequestObjectResult>
 {
-    protected override void InnerWrite(JsonWriter writer, BadRequestObjectResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, BadRequestObjectResult result)
     {
-        ObjectResultConverter.Write(writer, result, serializer);
+        ObjectResultConverter.WriteObjectResult(writer, result);
     }
 }

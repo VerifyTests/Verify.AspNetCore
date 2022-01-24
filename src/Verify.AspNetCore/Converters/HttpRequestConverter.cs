@@ -1,45 +1,31 @@
-﻿using Newtonsoft.Json;
-
-class HttpRequestConverter :
+﻿class HttpRequestConverter :
     WriteOnlyJsonConverter<HttpRequest>
 {
-    public override void Write(VerifyJsonWriter writer, HttpRequest value, JsonSerializer serializer)
+    public override void Write(VerifyJsonWriter writer, HttpRequest value)
     {
         writer.WriteStartObject();
 
-        WriteProperties(writer, serializer, value);
+        WriteProperties(writer, value);
 
         writer.WriteEndObject();
     }
 
-    public static void WriteProperties(JsonWriter writer, JsonSerializer serializer, HttpRequest request)
+    public static void WriteProperties(VerifyJsonWriter writer, HttpRequest request)
     {
-        WriteHeaders(writer, serializer, request);
+        WriteHeaders(writer, request);
 
-        WriteCookies(writer, serializer, request);
+        WriteCookies(writer, request);
     }
 
-    static void WriteCookies(JsonWriter writer, JsonSerializer serializer, HttpRequest request)
+    static void WriteCookies(VerifyJsonWriter writer, HttpRequest request)
     {
         var cookies = request.Headers.Cookies();
-        if (!cookies.Any())
-        {
-            return;
-        }
-
-        writer.WritePropertyName("Cookies");
-        serializer.Serialize(writer, cookies);
+        writer.WriteProperty(request, cookies, "Cookies");
     }
 
-    static void WriteHeaders(JsonWriter writer, JsonSerializer serializer, HttpRequest request)
+    static void WriteHeaders(VerifyJsonWriter writer, HttpRequest request)
     {
         var headers = request.Headers.NotCookies();
-        if (!headers.Any())
-        {
-            return;
-        }
-
-        writer.WritePropertyName("Headers");
-        serializer.Serialize(writer, headers);
+        writer.WriteProperty(request, headers, "Headers");
     }
 }

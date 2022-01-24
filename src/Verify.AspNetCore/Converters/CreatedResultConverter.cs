@@ -1,13 +1,11 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class CreatedResultConverter :
     ResultConverter<CreatedResult>
 {
-    protected override void InnerWrite(JsonWriter writer, CreatedResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, CreatedResult result)
     {
-        writer.WritePropertyName("Location");
-        serializer.Serialize(writer, result.Location);
-        ObjectResultConverter.Write(writer, result, serializer);
+        writer.WriteProperty(result, result.Location, "Location");
+        ObjectResultConverter.WriteObjectResult(writer, result);
     }
 }

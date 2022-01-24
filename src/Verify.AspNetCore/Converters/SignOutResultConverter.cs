@@ -1,28 +1,25 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class SignOutResultConverter :
     ResultConverter<SignOutResult>
 {
-    protected override void InnerWrite(JsonWriter writer, SignOutResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, SignOutResult result)
     {
         if (result.AuthenticationSchemes.Count == 1)
         {
-            writer.WritePropertyName("Scheme");
-            serializer.Serialize(writer, result.AuthenticationSchemes.Single());
+            writer.WriteProperty(result, result.AuthenticationSchemes.Single(), "Scheme");
         }
         else
         {
-            writer.WritePropertyName("Schemes");
-            serializer.Serialize(writer, result.AuthenticationSchemes);
+            writer.WriteProperty(result, result.AuthenticationSchemes, "Schemes");
         }
+
         //TODO: Claims
         //serializer.Serialize(writer, result.Principal.Claims);
         var properties = result.Properties;
         if (properties != null && properties.Items.Any())
         {
-            writer.WritePropertyName("Properties");
-            serializer.Serialize(writer, properties.Items);
+            writer.WriteProperty(result, properties.Items, "Properties");
         }
     }
 }

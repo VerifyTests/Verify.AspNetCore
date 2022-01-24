@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class UnauthorizedResultConverter :
     ResultConverter<UnauthorizedResult>
 {
-    protected override void InnerWrite(JsonWriter writer, UnauthorizedResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, UnauthorizedResult result)
     {
-        writer.WritePropertyName("StatusCode");
-        serializer.Serialize(writer, result.StatusCode);
+        writer.WriteProperty(result, result.StatusCode, "StatusCode");
     }
 }

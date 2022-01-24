@@ -1,26 +1,19 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class RedirectToActionResultConverter :
     ResultConverter<RedirectToActionResult>
 {
-    protected override void InnerWrite(JsonWriter writer, RedirectToActionResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, RedirectToActionResult result)
     {
-        writer.WritePropertyName("ActionName");
-        serializer.Serialize(writer, result.ActionName);
-        writer.WritePropertyName("ControllerName");
-        serializer.Serialize(writer, result.ControllerName);
-        writer.WritePropertyName("Fragment");
-        serializer.Serialize(writer, result.Fragment);
-        writer.WritePropertyName("Permanent");
-        serializer.Serialize(writer, result.Permanent);
-        writer.WritePropertyName("PreserveMethod");
-        serializer.Serialize(writer, result.PreserveMethod);
+        writer.WriteProperty(result, result.ActionName, "ActionName");
+        writer.WriteProperty(result, result.ControllerName, "ControllerName");
+        writer.WriteProperty(result, result.Fragment, "Fragment");
+        writer.WriteProperty(result, result.Permanent, "Permanent");
+        writer.WriteProperty(result, result.PreserveMethod, "PreserveMethod");
         var values = result.RouteValues;
         if (values != null && values.Any())
         {
-            writer.WritePropertyName("RouteValues");
-            serializer.Serialize(writer, values.ToDictionary(x => x.Value!, x => x.Value));
+            writer.WriteProperty(result, values.ToDictionary(x => x.Value!, x => x.Value), "RouteValues");
         }
     }
 }

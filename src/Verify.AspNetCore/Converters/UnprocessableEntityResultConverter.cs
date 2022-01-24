@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class UnprocessableEntityResultConverter :
     ResultConverter<UnprocessableEntityResult>
 {
-    protected override void InnerWrite(JsonWriter writer, UnprocessableEntityResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, UnprocessableEntityResult result)
     {
-        writer.WritePropertyName("StatusCode");
-        serializer.Serialize(writer, result.StatusCode);
+        writer.WriteProperty(result, result.StatusCode, "StatusCode");
     }
 }

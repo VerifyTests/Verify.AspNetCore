@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class NotFoundObjectResultConverter :
     ResultConverter<NotFoundObjectResult>
 {
-    protected override void InnerWrite(JsonWriter writer, NotFoundObjectResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, NotFoundObjectResult result)
     {
-        ObjectResultConverter.Write(writer, result, serializer);
+        ObjectResultConverter.WriteObjectResult(writer, result);
     }
 }

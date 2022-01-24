@@ -1,18 +1,16 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 abstract class ResultConverter<T> :
     WriteOnlyJsonConverter<T>
     where T : ActionResult
 {
-    public override void Write(VerifyJsonWriter writer, T result, JsonSerializer serializer)
+    public override void Write(VerifyJsonWriter writer, T result)
     {
         writer.WriteStartObject();
-        writer.WritePropertyName("ResultType");
-        serializer.Serialize(writer, result.GetType().Name);
-        InnerWrite(writer, result, serializer);
+        writer.WriteProperty(result,result.GetType().Name,"ResultType");
+        InnerWrite(writer, result);
         writer.WriteEndObject();
     }
 
-    protected abstract void InnerWrite(JsonWriter writer, T result, JsonSerializer serializer);
+    protected abstract void InnerWrite(VerifyJsonWriter writer, T result);
 }

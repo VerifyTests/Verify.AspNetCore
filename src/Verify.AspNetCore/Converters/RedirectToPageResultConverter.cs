@@ -1,28 +1,20 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class RedirectToPageResultConverter :
     ResultConverter<RedirectToPageResult>
 {
-    protected override void InnerWrite(JsonWriter writer, RedirectToPageResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, RedirectToPageResult result)
     {
-        writer.WritePropertyName("Host");
-        serializer.Serialize(writer, result.Host);
-        writer.WritePropertyName("Fragment");
-        serializer.Serialize(writer, result.Fragment);
-        writer.WritePropertyName("Protocol");
-        serializer.Serialize(writer, result.Protocol);
-        writer.WritePropertyName("PreserveMethod");
-        serializer.Serialize(writer, result.PreserveMethod);
-        writer.WritePropertyName("PageHandler");
-        serializer.Serialize(writer, result.PageHandler);
-        writer.WritePropertyName("PageName");
-        serializer.Serialize(writer, result.PageName);
+        writer.WriteProperty(result, result.Host, "Host");
+        writer.WriteProperty(result, result.Fragment, "Fragment");
+        writer.WriteProperty(result, result.Protocol, "Protocol");
+        writer.WriteProperty(result, result.PreserveMethod, "PreserveMethod");
+        writer.WriteProperty(result, result.PageHandler, "PageHandler");
+        writer.WriteProperty(result, result.PageName, "PageName");
         var values = result.RouteValues;
         if (values != null && values.Any())
         {
-            writer.WritePropertyName("RouteValues");
-            serializer.Serialize(writer, values.ToDictionary(x => x.Key, x => x.Value));
+            writer.WriteProperty(result, values.ToDictionary(x => x.Key, x => x.Value), "RouteValues");
         }
     }
 }

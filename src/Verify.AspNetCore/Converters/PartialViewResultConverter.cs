@@ -1,22 +1,13 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class PartialViewResultConverter :
     ResultConverter<PartialViewResult>
 {
-    protected override void InnerWrite(JsonWriter writer, PartialViewResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, PartialViewResult result)
     {
-        if (result.StatusCode != null)
-        {
-            writer.WritePropertyName("StatusCode");
-            serializer.Serialize(writer, result.StatusCode);
-        }
-
-        writer.WritePropertyName("ContentType");
-        serializer.Serialize(writer, result.ContentType);
-        writer.WritePropertyName("ViewName");
-        serializer.Serialize(writer, result.ViewName);
-        writer.WritePropertyName("Model");
-        serializer.Serialize(writer, result.Model);
+        writer.WriteProperty(result, result.StatusCode, "StatusCode");
+        writer.WriteProperty(result, result.ContentType, "ContentType");
+        writer.WriteProperty(result, result.ViewName, "ViewName");
+        writer.WriteProperty(result, result.Model, "Model");
     }
 }

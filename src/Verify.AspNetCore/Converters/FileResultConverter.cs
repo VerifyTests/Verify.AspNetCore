@@ -1,31 +1,13 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 static class FileResultConverter
 {
-    public static void WriteFileData(JsonWriter writer, FileResult result, JsonSerializer serializer)
+    public static void WriteFileData(VerifyJsonWriter writer, FileResult result)
     {
-        if (!string.IsNullOrWhiteSpace(result.FileDownloadName))
-        {
-            writer.WritePropertyName("FileDownloadName");
-            serializer.Serialize(writer, result.FileDownloadName);
-        }
-
-        if (result.LastModified != null)
-        {
-            writer.WritePropertyName("LastModified");
-            serializer.Serialize(writer, result.LastModified);
-        }
-
-        if (result.EntityTag != null)
-        {
-            writer.WritePropertyName("EntityTag");
-            serializer.Serialize(writer, result.EntityTag);
-        }
-
-        writer.WritePropertyName("EnableRangeProcessing");
-        serializer.Serialize(writer, result.EnableRangeProcessing);
-        writer.WritePropertyName("ContentType");
-        serializer.Serialize(writer, result.ContentType);
+        writer.WriteProperty(result, result.FileDownloadName, "FileDownloadName");
+        writer.WriteProperty(result, result.LastModified, "LastModified");
+        writer.WriteProperty(result, result.EntityTag, "EntityTag");
+        writer.WriteProperty(result, result.EnableRangeProcessing, "EnableRangeProcessing");
+        writer.WriteProperty(result, result.ContentType, "ContentType");
     }
 }

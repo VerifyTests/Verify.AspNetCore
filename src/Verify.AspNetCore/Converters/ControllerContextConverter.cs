@@ -1,15 +1,14 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class ControllerContextConverter :
     WriteOnlyJsonConverter<ControllerContext>
 {
-    public override void Write(VerifyJsonWriter writer, ControllerContext context, JsonSerializer serializer)
+    public override void Write(VerifyJsonWriter writer, ControllerContext context)
     {
         var response = context.HttpContext.Response;
         writer.WriteStartObject();
 
-        HttpResponseConverter.WriteProperties(writer, serializer, response);
+        HttpResponseConverter.WriteProperties(writer, response);
 
         writer.WriteEndObject();
     }

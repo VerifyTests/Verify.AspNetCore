@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class UnsupportedMediaTypeResultConverter :
     ResultConverter<UnsupportedMediaTypeResult>
 {
-    protected override void InnerWrite(JsonWriter writer, UnsupportedMediaTypeResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, UnsupportedMediaTypeResult result)
     {
-        writer.WritePropertyName("StatusCode");
-        serializer.Serialize(writer, result.StatusCode);
+        writer.WriteProperty(result, result.StatusCode, "StatusCode");
     }
 }

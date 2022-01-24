@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class BadRequestResultConverter :
     ResultConverter<BadRequestResult>
 {
-    protected override void InnerWrite(JsonWriter writer, BadRequestResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, BadRequestResult result)
     {
-        writer.WritePropertyName("StatusCode");
-        serializer.Serialize(writer, result.StatusCode);
+        writer.WriteProperty(result, result.StatusCode, "StatusCode");
     }
 }

@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class ConflictResultConverter :
     ResultConverter<ConflictResult>
 {
-    protected override void InnerWrite(JsonWriter writer, ConflictResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, ConflictResult result)
     {
-        writer.WritePropertyName("StatusCode");
-        serializer.Serialize(writer, result.StatusCode);
+        writer.WriteProperty(result, result.StatusCode, "StatusCode");
     }
 }

@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class StatusCodeResultConverter :
     ResultConverter<StatusCodeResult>
 {
-    protected override void InnerWrite(JsonWriter writer, StatusCodeResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, StatusCodeResult result)
     {
-        writer.WritePropertyName("StatusCode");
-        serializer.Serialize(writer, result.StatusCode);
+        writer.WriteProperty(result, result.StatusCode, "StatusCode");
     }
 }

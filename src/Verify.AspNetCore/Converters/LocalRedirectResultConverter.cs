@@ -1,16 +1,12 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class LocalRedirectResultConverter :
     ResultConverter<LocalRedirectResult>
 {
-    protected override void InnerWrite(JsonWriter writer, LocalRedirectResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, LocalRedirectResult result)
     {
-        writer.WritePropertyName("PreserveMethod");
-        serializer.Serialize(writer, result.PreserveMethod);
-        writer.WritePropertyName("Permanent");
-        serializer.Serialize(writer, result.Permanent);
-        writer.WritePropertyName("Url");
-        serializer.Serialize(writer, result.Url);
+        writer.WriteProperty(result, result.PreserveMethod, "PreserveMethod");
+        writer.WriteProperty(result, result.Permanent, "Permanent");
+        writer.WriteProperty(result, result.Url, "Url");
     }
 }

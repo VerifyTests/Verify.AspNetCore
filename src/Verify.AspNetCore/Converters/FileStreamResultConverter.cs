@@ -1,12 +1,11 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class FileStreamResultConverter :
     ResultConverter<FileStreamResult>
 {
-    protected override void InnerWrite(JsonWriter writer, FileStreamResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, FileStreamResult result)
     {
         //TODO: do stream
-        FileResultConverter.WriteFileData(writer, result, serializer);
+        FileResultConverter.WriteFileData(writer, result);
     }
 }

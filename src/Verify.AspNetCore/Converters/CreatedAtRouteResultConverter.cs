@@ -1,20 +1,17 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 class CreatedAtRouteResultConverter :
     ResultConverter<CreatedAtRouteResult>
 {
-    protected override void InnerWrite(JsonWriter writer, CreatedAtRouteResult result, JsonSerializer serializer)
+    protected override void InnerWrite(VerifyJsonWriter writer, CreatedAtRouteResult result)
     {
-        writer.WritePropertyName("RouteName");
-        serializer.Serialize(writer, result.RouteName);
+        writer.WriteProperty(result, result.RouteName, "RouteName");
         var values = result.RouteValues;
         if (values != null && values.Any())
         {
-            writer.WritePropertyName("RouteValues");
-            serializer.Serialize(writer, values.ToDictionary(x => x.Key, x => x.Value));
+            writer.WriteProperty(result, values.ToDictionary(x => x.Key, x => x.Value), "RouteValues");
         }
 
-        ObjectResultConverter.Write(writer, result, serializer);
+        ObjectResultConverter.WriteObjectResult(writer, result);
     }
 }
