@@ -110,17 +110,23 @@ Will result in the following verified file:
     }
   ],
   context: {
-    Headers: {
-      headerKey: headerValue,
-      receivedInput: inputValue
-    },
-    Cookies: {
-      cookieKey: cookieValue
+    HttpContext: {
+      Request: {},
+      IsAbortedRequested: false,
+      Response: {
+        Headers: {
+          headerKey: headerValue,
+          receivedInput: inputValue
+        },
+        Cookies: {
+          cookieKey: cookieValue
+        }
+      }
     }
   }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyControllerTests.Test.verified.txt#L1-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTests.Test.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyControllerTests.Test.verified.txt#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTests.Test.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
