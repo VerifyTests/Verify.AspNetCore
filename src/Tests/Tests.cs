@@ -17,6 +17,29 @@ public class Tests
     }
 
     [Fact]
+    public Task HttpContext()
+    {
+        var context = new DefaultHttpContext
+        {
+            Items = new Dictionary<object, object?>
+            {
+                {
+                    "item1", "value1"
+                }
+            },
+            Connection =
+            {
+                Id = "ConnectionId"
+            }
+        };
+        return Verify(context);
+    }
+
+    [Fact]
+    public Task EmptyHttpContext() =>
+        Verify(new DefaultHttpContext());
+
+    [Fact]
     public Task FileContentResult()
     {
         var result = new FileContentResult(Encoding.UTF8.GetBytes("the content"), "text/plain");

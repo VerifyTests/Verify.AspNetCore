@@ -58,14 +58,12 @@ public class MyController :
     {
         public string Value { get; }
 
-        public DataItem(string value)
-        {
+        public DataItem(string value) =>
             Value = value;
-        }
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyController.cs#L1-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyController.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyController.cs#L1-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyController.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -137,10 +135,8 @@ public class MyMiddleware
 {
     RequestDelegate next;
 
-    public MyMiddleware(RequestDelegate next)
-    {
+    public MyMiddleware(RequestDelegate next) =>
         this.next = next;
-    }
 
     public async Task Invoke(HttpContext context)
     {
@@ -149,7 +145,7 @@ public class MyMiddleware
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyMiddleware.cs#L1-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddleware.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyMiddleware.cs#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddleware.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:

@@ -10,7 +10,7 @@
         writer.WriteEndObject();
     }
 
-    public static void WriteProperties(VerifyJsonWriter writer, HttpResponse response)
+    static void WriteProperties(VerifyJsonWriter writer, HttpResponse response)
     {
         WriteHeaders(writer, response);
 

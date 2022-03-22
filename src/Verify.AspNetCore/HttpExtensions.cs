@@ -83,8 +83,6 @@ static class HttpExtensions
         {"x-world/x-vrml", "xof"}
     };
 
-    public static bool TryGetMediaTypeExtension(string mediaType, [NotNullWhen(true)] out string? extension)
-    {
-        return mappings.TryGetValue(mediaType, out extension);
-    }
+    public static bool TryGetMediaTypeExtension(string mediaType, [NotNullWhen(true)] out string? extension) =>
+        mappings.TryGetValue(mediaType, out extension);
 }

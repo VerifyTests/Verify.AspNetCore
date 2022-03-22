@@ -24,9 +24,7 @@ public class MyController :
     {
         public string Value { get; }
 
-        public DataItem(string value)
-        {
+        public DataItem(string value) =>
             Value = value;
-        }
     }
 }

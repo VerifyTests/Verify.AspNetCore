@@ -17,16 +17,13 @@ static class Extensions
         return await reader.ReadToEndAsync();
     }
 
-    public static Dictionary<string, string> NotCookies(this IHeaderDictionary headers)
-    {
-        return headers
+    public static Dictionary<string, string> NotCookies(this IHeaderDictionary headers) =>
+        headers
             .Where(x => x.Key != HeaderNames.SetCookie)
             .ToDictionary(x => x.Key, x => x.Value.ToString());
-    }
 
-    public static Dictionary<string, string> Cookies(this IHeaderDictionary headers)
-    {
-        return headers
+    public static Dictionary<string, string> Cookies(this IHeaderDictionary headers) =>
+        headers
             .Where(x => x.Key == HeaderNames.SetCookie)
             .Select(x =>
             {
@@ -34,5 +31,4 @@ static class Extensions
                 return SetCookieHeaderValue.Parse(stringSegment);
             })
             .ToDictionary(x => x.Name.Value, x => x.Value.Value);
-    }
 }

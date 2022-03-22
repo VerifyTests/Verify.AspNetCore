@@ -3,8 +3,6 @@
 class UnauthorizedObjectResultConverter :
     ResultConverter<UnauthorizedObjectResult>
 {
-    protected override void InnerWrite(VerifyJsonWriter writer, UnauthorizedObjectResult result)
-    {
+    protected override void InnerWrite(VerifyJsonWriter writer, UnauthorizedObjectResult result) =>
         ObjectResultConverter.WriteObjectResult(writer, result);
-    }
 }

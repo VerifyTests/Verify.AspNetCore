@@ -5,10 +5,10 @@ class ControllerContextConverter :
 {
     public override void Write(VerifyJsonWriter writer, ControllerContext context)
     {
-        var response = context.HttpContext.Response;
+        //TODO: missing ControllerContext props
         writer.WriteStartObject();
 
-        HttpResponseConverter.WriteProperties(writer, response);
+        writer.WriteProperty(context, context.HttpContext, "HttpContext");
 
         writer.WriteEndObject();
     }

@@ -3,10 +3,8 @@
 class ObjectResultConverter :
     ResultConverter<ObjectResult>
 {
-    protected override void InnerWrite(VerifyJsonWriter writer, ObjectResult result)
-    {
+    protected override void InnerWrite(VerifyJsonWriter writer, ObjectResult result) =>
         WriteObjectResult(writer, result);
-    }
 
     public static void WriteObjectResult(VerifyJsonWriter writer, ObjectResult result)
     {

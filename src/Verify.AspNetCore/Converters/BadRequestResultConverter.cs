@@ -3,8 +3,6 @@
 class BadRequestResultConverter :
     ResultConverter<BadRequestResult>
 {
-    protected override void InnerWrite(VerifyJsonWriter writer, BadRequestResult result)
-    {
+    protected override void InnerWrite(VerifyJsonWriter writer, BadRequestResult result) =>
         writer.WriteProperty(result, result.StatusCode, "StatusCode");
-    }
 }

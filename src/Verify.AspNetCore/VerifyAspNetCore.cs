@@ -15,6 +15,7 @@ public static class VerifyAspNetCore
             settings.AddExtraSettings(serializer =>
             {
                 var converters = serializer.Converters;
+                converters.Add(new HttpContextConverter());
                 converters.Add(new HttpResponseConverter());
                 converters.Add(new HttpRequestConverter());
                 converters.Add(new ChallengeResultConverter());
@@ -134,9 +135,8 @@ public static class VerifyAspNetCore
         return new(info, extension, await target.FileStream.ReadAsString());
     }
 
-    static FileResultInfo GetFileResultInfo(FileResult target)
-    {
-        return new()
+    static FileResultInfo GetFileResultInfo(FileResult target) =>
+        new()
         {
             FileDownloadName = target.FileDownloadName,
             LastModified = target.LastModified,
@@ -144,5 +144,4 @@ public static class VerifyAspNetCore
             EnableRangeProcessing = target.EnableRangeProcessing,
             ContentType = target.ContentType
         };
-    }
 }

@@ -1,4 +1,4 @@
-{
+﻿{
   result: [
     {
       Value: Value1
@@ -8,12 +8,18 @@
     }
   ],
   context: {
-    Headers: {
-      headerKey: headerValue,
-      receivedInput: inputValue
-    },
-    Cookies: {
-      cookieKey: cookieValue
+    HttpContext: {
+      Request: {},
+      IsAbortedRequested: false,
+      Response: {
+        Headers: {
+          headerKey: headerValue,
+          receivedInput: inputValue
+        },
+        Cookies: {
+          cookieKey: cookieValue
+        }
+      }
     }
   }
 }

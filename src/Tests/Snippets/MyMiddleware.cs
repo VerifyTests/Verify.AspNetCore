@@ -2,10 +2,8 @@
 {
     RequestDelegate next;
 
-    public MyMiddleware(RequestDelegate next)
-    {
+    public MyMiddleware(RequestDelegate next) =>
         this.next = next;
-    }
 
     public async Task Invoke(HttpContext context)
     {
