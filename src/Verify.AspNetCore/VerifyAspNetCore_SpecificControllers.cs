@@ -8,12 +8,9 @@ public static partial class VerifyAspNetCore
     /// <summary>
     /// Finds the appropriate controllers
     /// </summary>
-    public static void UseSpecificControllers(
-        this ApplicationPartManager manager,
-        params Type[] controllers)
+    public static void UseSpecificControllers(this ApplicationPartManager manager, params Type[] controllers)
     {
         manager.FeatureProviders.Add(new InternalControllerProvider());
-        manager.ApplicationParts.Clear();
         manager.ApplicationParts.Add(new SelectedControllersParts(controllers));
     }
 

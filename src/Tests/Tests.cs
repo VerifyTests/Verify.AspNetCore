@@ -76,14 +76,9 @@ public class Tests
         controllers.UseSpecificControllers(typeof(FooController));
 
         await using var app = builder.Build();
-        app.UseHttpsRedirection();
-
-        app.UseAuthorization();
-
         app.MapControllers();
 
         var runAsync = app.RunAsync();
-        await Task.Delay(1000);
         var httpClient = new HttpClient();
         var result = httpClient.GetStringAsync(app.Urls.First()+"/Foo");
         await Verify(result);
