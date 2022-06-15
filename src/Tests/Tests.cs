@@ -11,7 +11,9 @@ public class Tests
             new(
                 new Dictionary<string, string?>
                 {
-                    {"key", "value"}
+                    {
+                        "key", "value"
+                    }
                 }));
         return Verify(result);
     }
@@ -67,12 +69,15 @@ public class Tests
         return Verify(result);
     }
 
+    #region TestController
+
     [Fact]
     public async Task ControllerIntegrationTest()
     {
         var builder = WebApplication.CreateBuilder();
 
         var controllers = builder.Services.AddControllers();
+        // custom extension
         controllers.UseSpecificControllers(typeof(FooController));
 
         await using var app = builder.Build();
@@ -94,4 +99,6 @@ public class Tests
         public string Get() =>
             "Foo";
     }
+
+    #endregion
 }
