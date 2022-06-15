@@ -19,9 +19,11 @@ Enable VerifyAspNetCore once at assembly load time:
 <!-- snippet: Enable -->
 <a id='snippet-enable'></a>
 ```cs
-VerifyAspNetCore.Enable();
+[ModuleInitializer]
+public static void Initialize() =>
+    VerifyAspNetCore.Enable();
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L6-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L3-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
