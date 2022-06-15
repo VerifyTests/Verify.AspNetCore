@@ -1,4 +1,5 @@
 ﻿{
   FileDownloadName: ,
+  EnableRangeProcessing: false,
   ContentType: text/plain
 }
