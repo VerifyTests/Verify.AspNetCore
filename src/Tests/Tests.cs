@@ -78,16 +78,17 @@ public class Tests
         await using var app = builder.Build();
         app.MapControllers();
 
-        var runAsync = app.RunAsync();
+        await app.StartAsync();
         var httpClient = new HttpClient();
-        var result = httpClient.GetStringAsync(app.Urls.First()+"/Foo");
+        var result = httpClient.GetStringAsync($"{app.Urls.First()}/Foo");
         await Verify(result);
         await app.StopAsync();
     }
 
     [ApiController]
     [Route("[controller]")]
-    public class FooController : ControllerBase
+    public class FooController :
+        ControllerBase
     {
         [HttpGet]
         public string Get() =>
