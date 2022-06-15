@@ -204,9 +204,9 @@ Will result in the following verified file:
 <!-- endSnippet -->
 
 
-## Testing web app with specific controller scenarios
+## Testing a web app with specific controller scenarios
 
-`UseSpecificControllers` extends `IMvcBuilder` to allow integration testing of a web app using s specific controller scenario.
+`UseSpecificControllers` extends `IMvcBuilder` to allow integration testing of a web app using a specific controller scenario.
 
 <!-- snippet: TestController -->
 <a id='snippet-testcontroller'></a>
