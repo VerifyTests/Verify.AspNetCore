@@ -124,20 +124,21 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (EmptyFiles.Extensions.IsText(extension))
+        if (!EmptyFiles.Extensions.IsText(extension))
         {
-            return new(info, extension, await target.FileStream.ReadAsString());
+            return new(info, extension, target.FileStream);
         }
 
-        return new(info, extension, target.FileStream);
+        return new(info, extension, await target.FileStream.ReadAsString());
     }
 
     static FileResultInfo GetFileResultInfo(FileResult target) =>
-        new(
-            target.FileDownloadName,
-            target.LastModified,
-            target.EntityTag,
-            target.EnableRangeProcessing,
-            target.ContentType
-        );
+        new()
+        {
+            FileDownloadName = target.FileDownloadName,
+            LastModified = target.LastModified,
+            EntityTag = target.EntityTag,
+            EnableRangeProcessing = target.EnableRangeProcessing,
+            ContentType = target.ContentType
+        };
 }
