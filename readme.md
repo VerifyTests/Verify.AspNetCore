@@ -224,10 +224,11 @@ public async Task ControllerIntegrationTest()
     app.MapControllers();
 
     await app.StartAsync();
-    var httpClient = new HttpClient();
-    var result = httpClient.GetStringAsync($"{app.Urls.First()}/Foo");
+
+    using var client = new HttpClient();
+    var result = client.GetStringAsync($"{app.Urls.First()}/Foo");
+
     await Verify(result);
-    await app.StopAsync();
 }
 
 [ApiController]
@@ -240,7 +241,7 @@ public class FooController :
         "Foo";
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L72-L103' title='Snippet source file'>snippet source</a> | <a href='#snippet-testcontroller' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L72-L104' title='Snippet source file'>snippet source</a> | <a href='#snippet-testcontroller' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

@@ -84,10 +84,11 @@ public class Tests
         app.MapControllers();
 
         await app.StartAsync();
-        var httpClient = new HttpClient();
-        var result = httpClient.GetStringAsync($"{app.Urls.First()}/Foo");
+
+        using var client = new HttpClient();
+        var result = client.GetStringAsync($"{app.Urls.First()}/Foo");
+
         await Verify(result);
-        await app.StopAsync();
     }
 
     [ApiController]
