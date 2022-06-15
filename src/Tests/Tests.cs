@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
-using Microsoft.AspNetCore.Mvc.Controllers;
-using Microsoft.AspNetCore.Mvc.Testing;
-using MyApp;
 
 [UsesVerify]
 public class Tests
@@ -70,14 +66,14 @@ public class Tests
         var result = new VirtualFileResult("target.txt", "text/plain");
         return Verify(result);
     }
-    
+
     [Fact]
     public async Task ControllerIntegrationTest()
     {
         var builder = WebApplication.CreateBuilder();
 
-        IMvcBuilder addControllers = builder.Services.AddControllers();
-        addControllers.UseSpecificControllers(typeof(FooController));
+        var controllers = builder.Services.AddControllers();
+        controllers.UseSpecificControllers(typeof(FooController));
 
         await using var app = builder.Build();
         app.UseHttpsRedirection();
@@ -87,8 +83,7 @@ public class Tests
         app.MapControllers();
 
         var runAsync = app.RunAsync();
-
-        await Task.Delay(10000);
+        await Task.Delay(1000);
         var httpClient = new HttpClient();
         var result = httpClient.GetStringAsync(app.Urls.First()+"/Foo");
         await Verify(result);

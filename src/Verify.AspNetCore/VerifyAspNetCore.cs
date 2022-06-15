@@ -2,7 +2,7 @@
 
 namespace VerifyTests;
 
-public static class VerifyAspNetCore
+public static partial class VerifyAspNetCore
 {
     public static void Enable()
     {
