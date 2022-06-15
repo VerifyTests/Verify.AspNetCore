@@ -2,7 +2,7 @@
 
 static class Extensions
 {
-    public static void MoveToStart(this Stream stream)
+    static void MoveToStart(this Stream stream)
     {
         if (stream.CanSeek)
         {

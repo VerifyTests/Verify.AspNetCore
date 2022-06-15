@@ -204,6 +204,47 @@ Will result in the following verified file:
 <!-- endSnippet -->
 
 
+## Testing web app with specific controller scenarios
+
+`UseSpecificControllers` extends `IMvcBuilder` to allow integration testing of a web app using s specific controller scenario.
+
+<!-- snippet: TestController -->
+<a id='snippet-testcontroller'></a>
+```cs
+[Fact]
+public async Task ControllerIntegrationTest()
+{
+    var builder = WebApplication.CreateBuilder();
+
+    var controllers = builder.Services.AddControllers();
+    // custom extension
+    controllers.UseSpecificControllers(typeof(FooController));
+
+    await using var app = builder.Build();
+    app.MapControllers();
+
+    await app.StartAsync();
+
+    using var client = new HttpClient();
+    var result = client.GetStringAsync($"{app.Urls.First()}/Foo");
+
+    await Verify(result);
+}
+
+[ApiController]
+[Route("[controller]")]
+public class FooController :
+    ControllerBase
+{
+    [HttpGet]
+    public string Get() =>
+        "Foo";
+}
+```
+<sup><a href='/src/Tests/Tests.cs#L72-L104' title='Snippet source file'>snippet source</a> | <a href='#snippet-testcontroller' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
 ## Icon
 
 [Spider](https://thenounproject.com/term/spider/904683/) designed by [marialuisa iborra](https://thenounproject.com/marialuisa.iborra/) from [The Noun Project](https://thenounproject.com).

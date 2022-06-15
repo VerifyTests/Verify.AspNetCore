@@ -2,7 +2,7 @@
 
 namespace VerifyTests;
 
-public static class VerifyAspNetCore
+public static partial class VerifyAspNetCore
 {
     public static void Enable()
     {
@@ -124,21 +124,20 @@ public static class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (!EmptyFiles.Extensions.IsText(extension))
+        if (EmptyFiles.Extensions.IsText(extension))
         {
-            return new(info, extension, target.FileStream);
+            return new(info, extension, await target.FileStream.ReadAsString());
         }
 
-        return new(info, extension, await target.FileStream.ReadAsString());
+        return new(info, extension, target.FileStream);
     }
 
     static FileResultInfo GetFileResultInfo(FileResult target) =>
-        new()
-        {
-            FileDownloadName = target.FileDownloadName,
-            LastModified = target.LastModified,
-            EntityTag = target.EntityTag,
-            EnableRangeProcessing = target.EnableRangeProcessing,
-            ContentType = target.ContentType
-        };
+        new(
+            target.FileDownloadName,
+            target.LastModified,
+            target.EntityTag,
+            target.EnableRangeProcessing,
+            target.ContentType
+        );
 }

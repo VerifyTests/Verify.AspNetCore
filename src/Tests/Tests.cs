@@ -11,7 +11,9 @@ public class Tests
             new(
                 new Dictionary<string, string?>
                 {
-                    {"key", "value"}
+                    {
+                        "key", "value"
+                    }
                 }));
         return Verify(result);
     }
@@ -66,4 +68,38 @@ public class Tests
         var result = new VirtualFileResult("target.txt", "text/plain");
         return Verify(result);
     }
+
+    #region TestController
+
+    [Fact]
+    public async Task ControllerIntegrationTest()
+    {
+        var builder = WebApplication.CreateBuilder();
+
+        var controllers = builder.Services.AddControllers();
+        // custom extension
+        controllers.UseSpecificControllers(typeof(FooController));
+
+        await using var app = builder.Build();
+        app.MapControllers();
+
+        await app.StartAsync();
+
+        using var client = new HttpClient();
+        var result = client.GetStringAsync($"{app.Urls.First()}/Foo");
+
+        await Verify(result);
+    }
+
+    [ApiController]
+    [Route("[controller]")]
+    public class FooController :
+        ControllerBase
+    {
+        [HttpGet]
+        public string Get() =>
+            "Foo";
+    }
+
+    #endregion
 }
