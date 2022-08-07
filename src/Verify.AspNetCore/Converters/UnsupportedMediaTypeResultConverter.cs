@@ -4,5 +4,5 @@ class UnsupportedMediaTypeResultConverter :
     ResultConverter<UnsupportedMediaTypeResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, UnsupportedMediaTypeResult result) =>
-        writer.WriteProperty(result, result.StatusCode, "StatusCode");
+        writer.WriteMember(result, result.StatusCode, "StatusCode");
 }

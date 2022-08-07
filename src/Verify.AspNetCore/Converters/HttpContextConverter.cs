@@ -6,9 +6,9 @@ class HttpContextConverter :
     {
         writer.WriteStartObject();
 
-        writer.WriteProperty(context, context.Request, "Request");
-        writer.WriteProperty(context, context.RequestAborted.IsCancellationRequested, "IsAbortedRequested");
-        writer.WriteProperty(context, context.Response, "Response");
+        writer.WriteMember(context, context.Request, "Request");
+        writer.WriteMember(context, context.RequestAborted.IsCancellationRequested, "IsAbortedRequested");
+        writer.WriteMember(context, context.Response, "Response");
 
         writer.WriteEndObject();
     }

@@ -20,12 +20,12 @@
     static void WriteCookies(VerifyJsonWriter writer, HttpRequest request)
     {
         var cookies = request.Headers.Cookies();
-        writer.WriteProperty(request, cookies, "Cookies");
+        writer.WriteMember(request, cookies, "Cookies");
     }
 
     static void WriteHeaders(VerifyJsonWriter writer, HttpRequest request)
     {
         var headers = request.Headers.NotCookies();
-        writer.WriteProperty(request, headers, "Headers");
+        writer.WriteMember(request, headers, "Headers");
     }
 }

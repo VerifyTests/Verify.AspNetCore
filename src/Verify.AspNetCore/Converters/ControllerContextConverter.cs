@@ -8,7 +8,7 @@ class ControllerContextConverter :
         //TODO: missing ControllerContext props
         writer.WriteStartObject();
 
-        writer.WriteProperty(context, context.HttpContext, "HttpContext");
+        writer.WriteMember(context, context.HttpContext, "HttpContext");
 
         writer.WriteEndObject();
     }

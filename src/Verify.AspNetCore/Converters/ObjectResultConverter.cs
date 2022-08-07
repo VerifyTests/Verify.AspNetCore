@@ -8,10 +8,10 @@ class ObjectResultConverter :
 
     public static void WriteObjectResult(VerifyJsonWriter writer, ObjectResult result)
     {
-        writer.WriteProperty(result, result.Value, "Value");
-        writer.WriteProperty(result, result.StatusCode, "StatusCode");
+        writer.WriteMember(result, result.Value, "Value");
+        writer.WriteMember(result, result.StatusCode, "StatusCode");
 
-        writer.WriteProperty(result, result.ContentTypes, "ContentTypes");
-        writer.WriteProperty(result, result.DeclaredType, "DeclaredType");
+        writer.WriteMember(result, result.ContentTypes, "ContentTypes");
+        writer.WriteMember(result, result.DeclaredType, "DeclaredType");
     }
 }

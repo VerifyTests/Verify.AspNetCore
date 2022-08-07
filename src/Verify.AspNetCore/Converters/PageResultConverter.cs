@@ -5,13 +5,13 @@ class PageResultConverter :
 {
     protected override void InnerWrite(VerifyJsonWriter writer, PageResult result)
     {
-        writer.WriteProperty(result, result.StatusCode, "StatusCode");
-        writer.WriteProperty(result, result.ContentType, "ContentType");
-        writer.WriteProperty(result, result.Model, "Model");
+        writer.WriteMember(result, result.StatusCode, "StatusCode");
+        writer.WriteMember(result, result.ContentType, "ContentType");
+        writer.WriteMember(result, result.Model, "Model");
 
         if (result.ViewData.Any())
         {
-            writer.WriteProperty(result, result.ViewData.ToDictionary(x => x.Key, x => x.Value), "ViewData");
+            writer.WriteMember(result, result.ViewData.ToDictionary(x => x.Key, x => x.Value), "ViewData");
         }
     }
 }

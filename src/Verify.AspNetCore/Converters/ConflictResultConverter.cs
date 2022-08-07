@@ -4,5 +4,5 @@ class ConflictResultConverter :
     ResultConverter<ConflictResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, ConflictResult result) =>
-        writer.WriteProperty(result, result.StatusCode, "StatusCode");
+        writer.WriteMember(result, result.StatusCode, "StatusCode");
 }

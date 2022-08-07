@@ -5,8 +5,8 @@ class JsonResultConverter :
 {
     protected override void InnerWrite(VerifyJsonWriter writer, JsonResult result)
     {
-        writer.WriteProperty(result, result.StatusCode, "StatusCode");
-        writer.WriteProperty(result, result.Value, "Value");
-        writer.WriteProperty(result, result.ContentType, "ContentType");
+        writer.WriteMember(result, result.StatusCode, "StatusCode");
+        writer.WriteMember(result, result.Value, "Value");
+        writer.WriteMember(result, result.ContentType, "ContentType");
     }
 }

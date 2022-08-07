@@ -5,13 +5,13 @@ class SignInResultConverter :
 {
     protected override void InnerWrite(VerifyJsonWriter writer, SignInResult result)
     {
-        writer.WriteProperty(result, result.AuthenticationScheme, "Scheme");
+        writer.WriteMember(result, result.AuthenticationScheme, "Scheme");
         //TODO: Claims
         //serializer.Serialize(writer, result.Principal.Claims);
         var properties = result.Properties;
         if (properties != null && properties.Items.Any())
         {
-            writer.WriteProperty(result, properties.Items, "Properties");
+            writer.WriteMember(result, properties.Items, "Properties");
         }
     }
 }
