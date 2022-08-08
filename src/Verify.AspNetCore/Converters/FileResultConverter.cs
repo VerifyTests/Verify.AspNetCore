@@ -4,10 +4,10 @@ static class FileResultConverter
 {
     public static void WriteFileData(VerifyJsonWriter writer, FileResult result)
     {
-        writer.WriteProperty(result, result.FileDownloadName, "FileDownloadName");
-        writer.WriteProperty(result, result.LastModified, "LastModified");
-        writer.WriteProperty(result, result.EntityTag, "EntityTag");
-        writer.WriteProperty(result, result.EnableRangeProcessing, "EnableRangeProcessing");
-        writer.WriteProperty(result, result.ContentType, "ContentType");
+        writer.WriteMember(result, result.FileDownloadName, "FileDownloadName");
+        writer.WriteMember(result, result.LastModified, "LastModified");
+        writer.WriteMember(result, result.EntityTag, "EntityTag");
+        writer.WriteMember(result, result.EnableRangeProcessing, "EnableRangeProcessing");
+        writer.WriteMember(result, result.ContentType, "ContentType");
     }
 }

@@ -5,16 +5,16 @@ class RedirectToPageResultConverter :
 {
     protected override void InnerWrite(VerifyJsonWriter writer, RedirectToPageResult result)
     {
-        writer.WriteProperty(result, result.Host, "Host");
-        writer.WriteProperty(result, result.Fragment, "Fragment");
-        writer.WriteProperty(result, result.Protocol, "Protocol");
-        writer.WriteProperty(result, result.PreserveMethod, "PreserveMethod");
-        writer.WriteProperty(result, result.PageHandler, "PageHandler");
-        writer.WriteProperty(result, result.PageName, "PageName");
+        writer.WriteMember(result, result.Host, "Host");
+        writer.WriteMember(result, result.Fragment, "Fragment");
+        writer.WriteMember(result, result.Protocol, "Protocol");
+        writer.WriteMember(result, result.PreserveMethod, "PreserveMethod");
+        writer.WriteMember(result, result.PageHandler, "PageHandler");
+        writer.WriteMember(result, result.PageName, "PageName");
         var values = result.RouteValues;
         if (values != null && values.Any())
         {
-            writer.WriteProperty(result, values.ToDictionary(x => x.Key, x => x.Value), "RouteValues");
+            writer.WriteMember(result, values.ToDictionary(x => x.Key, x => x.Value), "RouteValues");
         }
     }
 }

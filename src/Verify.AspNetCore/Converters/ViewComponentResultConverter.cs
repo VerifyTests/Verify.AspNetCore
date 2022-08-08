@@ -5,22 +5,22 @@ class ViewComponentResultConverter :
 {
     protected override void InnerWrite(VerifyJsonWriter writer, ViewComponentResult result)
     {
-        writer.WriteProperty(result, result.StatusCode, "StatusCode");
-        writer.WriteProperty(result, result.ContentType, "ContentType");
-        writer.WriteProperty(result, result.ViewComponentName, "ViewComponentName");
-        writer.WriteProperty(result, result.ViewComponentType?.FullName, "ViewComponentType");
+        writer.WriteMember(result, result.StatusCode, "StatusCode");
+        writer.WriteMember(result, result.ContentType, "ContentType");
+        writer.WriteMember(result, result.ViewComponentName, "ViewComponentName");
+        writer.WriteMember(result, result.ViewComponentType?.FullName, "ViewComponentType");
 
         if (result.TempData.Any())
         {
-            writer.WriteProperty(result, result.TempData.ToDictionary(x => x.Key, x => x.Value), "TempData");
+            writer.WriteMember(result, result.TempData.ToDictionary(x => x.Key, x => x.Value), "TempData");
         }
 
         if (result.ViewData.Any())
         {
-            writer.WriteProperty(result, result.ViewData.ToDictionary(x => x.Key, x => x.Value), "ViewData");
+            writer.WriteMember(result, result.ViewData.ToDictionary(x => x.Key, x => x.Value), "ViewData");
         }
 
-        writer.WriteProperty(result, result.Arguments, "Arguments");
-        writer.WriteProperty(result, result.Model, "Model");
+        writer.WriteMember(result, result.Arguments, "Arguments");
+        writer.WriteMember(result, result.Model, "Model");
     }
 }

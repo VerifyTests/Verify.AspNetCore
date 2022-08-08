@@ -7,11 +7,11 @@ class SignOutResultConverter :
     {
         if (result.AuthenticationSchemes.Count == 1)
         {
-            writer.WriteProperty(result, result.AuthenticationSchemes.Single(), "Scheme");
+            writer.WriteMember(result, result.AuthenticationSchemes.Single(), "Scheme");
         }
         else
         {
-            writer.WriteProperty(result, result.AuthenticationSchemes, "Schemes");
+            writer.WriteMember(result, result.AuthenticationSchemes, "Schemes");
         }
 
         //TODO: Claims
@@ -19,7 +19,7 @@ class SignOutResultConverter :
         var properties = result.Properties;
         if (properties != null && properties.Items.Any())
         {
-            writer.WriteProperty(result, properties.Items, "Properties");
+            writer.WriteMember(result, properties.Items, "Properties");
         }
     }
 }

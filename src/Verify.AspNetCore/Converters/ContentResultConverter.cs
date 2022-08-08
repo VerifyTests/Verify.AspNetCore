@@ -5,8 +5,8 @@ class ContentResultConverter :
 {
     protected override void InnerWrite(VerifyJsonWriter writer, ContentResult result)
     {
-        writer.WriteProperty(result, result.StatusCode, "StatusCode");
-        writer.WriteProperty(result, result.Content, "Content");
-        writer.WriteProperty(result, result.ContentType, "ContentType");
+        writer.WriteMember(result, result.StatusCode, "StatusCode");
+        writer.WriteMember(result, result.Content, "Content");
+        writer.WriteMember(result, result.ContentType, "ContentType");
     }
 }

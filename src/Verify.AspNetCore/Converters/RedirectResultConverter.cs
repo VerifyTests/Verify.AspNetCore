@@ -5,8 +5,8 @@ class RedirectResultConverter :
 {
     protected override void InnerWrite(VerifyJsonWriter writer, RedirectResult result)
     {
-        writer.WriteProperty(result, result.Url, "Url");
-        writer.WriteProperty(result, result.PreserveMethod, "PreserveMethod");
-        writer.WriteProperty(result, result.Permanent, "Permanent");
+        writer.WriteMember(result, result.Url, "Url");
+        writer.WriteMember(result, result.PreserveMethod, "PreserveMethod");
+        writer.WriteMember(result, result.Permanent, "Permanent");
     }
 }

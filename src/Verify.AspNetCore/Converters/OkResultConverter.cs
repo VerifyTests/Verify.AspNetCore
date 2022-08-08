@@ -4,5 +4,5 @@ class OkResultConverter :
     ResultConverter<OkResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, OkResult result) =>
-        writer.WriteProperty(result, result.StatusCode, "StatusCode");
+        writer.WriteMember(result, result.StatusCode, "StatusCode");
 }

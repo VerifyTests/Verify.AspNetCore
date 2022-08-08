@@ -5,7 +5,7 @@ class AcceptedResultConverter :
 {
     protected override void InnerWrite(VerifyJsonWriter writer, AcceptedResult result)
     {
-        writer.WriteProperty(result, result.Location, "Location");
+        writer.WriteMember(result, result.Location, "Location");
         ObjectResultConverter.WriteObjectResult(writer, result);
     }
 }
