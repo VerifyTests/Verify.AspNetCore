@@ -117,7 +117,7 @@ Will result in the following verified file:
       Request: {},
       IsAbortedRequested: false,
       Response: {
-        StatusCode: 200,
+        StatusCode: OK,
         Headers: {
           headerKey: headerValue,
           receivedInput: inputValue
@@ -195,7 +195,7 @@ Will result in the following verified file:
 ```txt
 {
   Response: {
-    StatusCode: 200,
+    StatusCode: OK,
     Headers: {
       headerKey: headerValue
     }
