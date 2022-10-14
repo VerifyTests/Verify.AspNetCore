@@ -7,7 +7,7 @@ abstract class ResultConverter<T> :
     public override void Write(VerifyJsonWriter writer, T result)
     {
         writer.WriteStartObject();
-        writer.WriteMember(result,result.GetType().Name,"ResultType");
+        writer.WriteMember(result, result.GetType().Name, "ResultType");
         InnerWrite(writer, result);
         writer.WriteEndObject();
     }
