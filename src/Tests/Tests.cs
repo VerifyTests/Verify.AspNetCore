@@ -42,6 +42,13 @@ public class Tests
         Verify(new DefaultHttpContext());
 
     [Fact]
+    public Task HeaderDictionary() =>
+        Verify(new HeaderDictionary
+        {
+            {"key", "value"}
+        });
+
+    [Fact]
     public Task FileContentResult()
     {
         var result = new FileContentResult(Encoding.UTF8.GetBytes("the content"), "text/plain");

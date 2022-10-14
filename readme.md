@@ -117,7 +117,7 @@ Will result in the following verified file:
       Request: {},
       IsAbortedRequested: false,
       Response: {
-        StatusCode: 200,
+        StatusCode: OK,
         Headers: {
           headerKey: headerValue,
           receivedInput: inputValue
@@ -195,7 +195,7 @@ Will result in the following verified file:
 ```txt
 {
   Response: {
-    StatusCode: 200,
+    StatusCode: OK,
     Headers: {
       headerKey: headerValue
     }
@@ -244,7 +244,7 @@ public class FooController :
         "Foo";
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L72-L104' title='Snippet source file'>snippet source</a> | <a href='#snippet-testcontroller' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L79-L111' title='Snippet source file'>snippet source</a> | <a href='#snippet-testcontroller' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

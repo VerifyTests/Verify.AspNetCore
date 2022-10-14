@@ -15,6 +15,7 @@ public static partial class VerifyAspNetCore
             var converters = serializer.Converters;
             converters.Add(new HttpContextConverter());
             converters.Add(new HttpResponseConverter());
+            converters.Add(new HeaderDictionaryConverter());
             converters.Add(new HttpRequestConverter());
             converters.Add(new ChallengeResultConverter());
             converters.Add(new ActionResultConverter());
