@@ -1,4 +1,6 @@
-﻿class HttpResponseConverter :
+﻿using System.Net;
+
+class HttpResponseConverter :
     WriteOnlyJsonConverter<HttpResponse>
 {
     public override void Write(VerifyJsonWriter writer, HttpResponse value)
@@ -12,6 +14,8 @@
 
     static void WriteProperties(VerifyJsonWriter writer, HttpResponse response)
     {
+        writer.WriteMember(response, (HttpStatusCode)response.StatusCode, "StatusCode");
+
         WriteHeaders(writer, response);
 
         WriteCookies(writer, response);

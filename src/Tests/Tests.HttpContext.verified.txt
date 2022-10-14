@@ -1,5 +1,7 @@
 ﻿{
   Request: {},
   IsAbortedRequested: false,
-  Response: {}
+  Response: {
+    StatusCode: OK
+  }
 }

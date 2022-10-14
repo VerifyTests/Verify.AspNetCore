@@ -117,6 +117,7 @@ Will result in the following verified file:
       Request: {},
       IsAbortedRequested: false,
       Response: {
+        StatusCode: 200,
         Headers: {
           headerKey: headerValue,
           receivedInput: inputValue
@@ -129,7 +130,7 @@ Will result in the following verified file:
   }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyControllerTests.Test.verified.txt#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTests.Test.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyControllerTests.Test.verified.txt#L1-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTests.Test.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -194,6 +195,7 @@ Will result in the following verified file:
 ```txt
 {
   Response: {
+    StatusCode: 200,
     Headers: {
       headerKey: headerValue
     }
@@ -201,7 +203,7 @@ Will result in the following verified file:
   nextCalled: true
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.Test.verified.txt#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddlewareTests.Test.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.Test.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddlewareTests.Test.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

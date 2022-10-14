@@ -12,6 +12,7 @@
       Request: {},
       IsAbortedRequested: false,
       Response: {
+        StatusCode: OK,
         Headers: {
           headerKey: headerValue,
           receivedInput: inputValue
