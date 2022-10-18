@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EmptyFiles;
+using Microsoft.AspNetCore.Mvc;
 
 namespace VerifyTests;
 
@@ -74,7 +75,7 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (EmptyFiles.Extensions.IsText(extension))
+        if (FileExtensions.IsText(extension))
         {
             return new(info, extension, Encoding.UTF8.GetString(target.FileContents));
         }
@@ -91,7 +92,7 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (EmptyFiles.Extensions.IsText(extension))
+        if (FileExtensions.IsText(extension))
         {
             return new(info, extension, await File.ReadAllTextAsync(target.FileName));
         }
@@ -108,7 +109,7 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (EmptyFiles.Extensions.IsText(extension))
+        if (FileExtensions.IsText(extension))
         {
             return new(info, extension, await File.ReadAllTextAsync(target.FileName));
         }
@@ -125,7 +126,7 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (EmptyFiles.Extensions.IsText(extension))
+        if (FileExtensions.IsText(extension))
         {
             return new(info, extension, await target.FileStream.ReadAsString());
         }
