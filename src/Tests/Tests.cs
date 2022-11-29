@@ -51,14 +51,14 @@ public class Tests
     [Fact]
     public Task FileContentResult()
     {
-        var result = new FileContentResult(Encoding.UTF8.GetBytes("the content"), "text/plain");
+        var result = new FileContentResult("the content"u8.ToArray(), "text/plain");
         return Verify(result);
     }
 
     [Fact]
     public Task FileStreamResult()
     {
-        var result = new FileStreamResult(new MemoryStream(Encoding.UTF8.GetBytes("the content")), "text/plain");
+        var result = new FileStreamResult(new MemoryStream("the content"u8.ToArray()), "text/plain");
         return Verify(result);
     }
 
