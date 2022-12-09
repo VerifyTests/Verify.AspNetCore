@@ -28,7 +28,8 @@ static class HttpExtensions
         {"application/fsharp-script", "fsx"},
         {"application/msaccess", "adp"},
         {"application/msword", "doc"},
-        {"application/octet-stream", "bin"},
+        //no point writing a binary
+        //{"application/octet-stream", "bin"},
         {"application/onenote", "one"},
         {"application/postscript", "eps"},
         {"application/step", "step"},
