@@ -7,6 +7,7 @@ public static partial class VerifyAspNetCore
 {
     public static void Enable()
     {
+        InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings.RegisterFileConverter<FileStreamResult>(ConvertFileResult);
         VerifierSettings.RegisterFileConverter<FileContentResult>(ConvertFileResult);
         VerifierSettings.RegisterFileConverter<PhysicalFileResult>(ConvertFileResult);
