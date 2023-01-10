@@ -6,4 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+        <PackageReference Include="ProjectDefaults" Version="1.0.84" PrivateAssets="all" />
+    </ItemGroup>
+
 </Project>

@@ -1,8 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SampleWebApplication;
 
 [UsesVerify]
 public class Tests
 {
+    [Fact]
+    public Task PageResult()
+    {
+        var page = new SampleRazorPage();
+        var result = page.OnGet();
+        return Verify(result);
+    }
+
     [Fact]
     public Task ChallengeResult()
     {
