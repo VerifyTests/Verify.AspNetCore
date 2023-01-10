@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SampleWebApplication;
+namespace RazorPageWebApplication.Pages;
 
-public class SampleRazorPage : PageModel
+public class IndexModel : PageModel
 {
     public IActionResult OnGet() =>
         Page();

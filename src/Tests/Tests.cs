@@ -1,15 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SampleWebApplication;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using RazorPageWebApplication.Pages;
 
 [UsesVerify]
 public class Tests
 {
     [Fact]
-    public Task PageResult()
+    public async Task PageResult()
     {
-        var page = new SampleRazorPage();
+
+        var builder = WebApplication.CreateBuilder();
+
+        builder.Services.AddMvcCore();
+        builder.Services.AddRazorPages();
+
+        var app = builder.Build();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
+        app.MapRazorPages();
+
+        await app.StartAsync();
+        var page = new IndexModel();
         var result = page.OnGet();
-        return Verify(result);
+        var actionContextAccessor = app.Services.GetRequiredService<IActionContextAccessor>();
+        //result.ExecuteResultAsync()
+        await Verify(result);
     }
 
     [Fact]
