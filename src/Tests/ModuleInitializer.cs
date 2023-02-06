@@ -4,11 +4,14 @@
 
     [ModuleInitializer]
     public static void Initialize() =>
-        VerifyAspNetCore.Enable();
+        VerifyAspNetCore.Initialize();
 
     #endregion
 
     [ModuleInitializer]
-    public static void InitializeOther() =>
+    public static void InitializeOther()
+    {
         VerifyDiffPlex.Initialize();
+        VerifierSettings.InitializePlugins();
+    }
 }
