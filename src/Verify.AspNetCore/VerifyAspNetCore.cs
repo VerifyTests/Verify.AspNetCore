@@ -19,6 +19,7 @@ public static partial class VerifyAspNetCore
         }
 
         Initialized = true;
+
         InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings.RegisterFileConverter<FileStreamResult>(ConvertFileResult);
         VerifierSettings.RegisterFileConverter<FileContentResult>(ConvertFileResult);
