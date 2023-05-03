@@ -1,5 +1,6 @@
 # <img src="/src/icon.png" height="30px"> Verify.AspNetCore
 
+[![Discussions](https://img.shields.io/badge/Verify-Discussions-yellow?svg=true&label=)](https://github.com/orgs/VerifyTests/discussions)
 [![Build status](https://ci.appveyor.com/api/projects/status/u4try12l1iimal2l?svg=true)](https://ci.appveyor.com/project/SimonCropp/verify-aspnetcore)
 [![NuGet Status](https://img.shields.io/nuget/v/Verify.AspNetCore.svg)](https://www.nuget.org/packages/Verify.AspNetCore/)
 
@@ -20,11 +21,10 @@ Enable VerifyAspNetCore once at assembly load time:
 <a id='snippet-enable'></a>
 ```cs
 [ModuleInitializer]
-public static void Initialize()
-{
-    VerifyAspNetCore.Enable();
+public static void Initialize() =>
+    VerifyAspNetCore.Initialize();
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L3-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

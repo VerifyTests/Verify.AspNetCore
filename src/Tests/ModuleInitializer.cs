@@ -3,12 +3,15 @@
     #region Enable
 
     [ModuleInitializer]
-    public static void Initialize()
+    public static void Initialize() =>
+        VerifyAspNetCore.Initialize();
+
+    #endregion
+
+    [ModuleInitializer]
+    public static void InitializeOther()
     {
-        VerifyAspNetCore.Enable();
-
-        #endregion
-
         VerifyDiffPlex.Initialize();
+        VerifierSettings.InitializePlugins();
     }
 }
