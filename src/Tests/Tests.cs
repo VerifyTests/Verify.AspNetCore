@@ -8,7 +8,6 @@ public class Tests
     [Fact]
     public async Task PageResult()
     {
-
         var builder = WebApplication.CreateBuilder();
 
         builder.Services.AddMvcCore();

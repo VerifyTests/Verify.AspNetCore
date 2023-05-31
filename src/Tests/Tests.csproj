@@ -13,7 +13,6 @@
     <PackageReference Include="Xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" PrivateAssets="all" />
     <ProjectReference Include="..\RazorPageWebApplication\RazorPageWebApplication.csproj" />
-    <ProjectReference Include="..\SampleWebApplication\SampleWebApplication.csproj" />
     <PackageReference Include="Verify.Xunit" Version="20.3.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
     <ProjectReference Include="..\Verify.AspNetCore\Verify.AspNetCore.csproj" />
