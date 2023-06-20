@@ -19,16 +19,16 @@ static class Extensions
 
     public static Dictionary<string, string> NotCookies(this IHeaderDictionary headers) =>
         headers
-            .Where(x => x.Key != HeaderNames.SetCookie)
-            .ToDictionary(x => x.Key, x => x.Value.ToString());
+            .Where(_ => _.Key != HeaderNames.SetCookie)
+            .ToDictionary(_ => _.Key, _ => _.Value.ToString());
 
     public static Dictionary<string, string?> Cookies(this IHeaderDictionary headers) =>
         headers
-            .Where(x => x.Key == HeaderNames.SetCookie)
+            .Where(_ => _.Key == HeaderNames.SetCookie)
             .Select(x =>
             {
                 var stringSegment = x.Value.Single();
                 return SetCookieHeaderValue.Parse(stringSegment);
             })
-            .ToDictionary(x => x.Name.Value!, x => x.Value.Value);
+            .ToDictionary(_ => _.Name.Value!, _ => _.Value.Value);
 }

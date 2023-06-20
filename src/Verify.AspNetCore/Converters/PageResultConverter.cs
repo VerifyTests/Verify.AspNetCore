@@ -11,7 +11,7 @@ class PageResultConverter :
 
         if (result.ViewData.Any())
         {
-            writer.WriteMember(result, result.ViewData.ToDictionary(x => x.Key, x => x.Value), "ViewData");
+            writer.WriteMember(result, result.ViewData.ToDictionary(_ => _.Key, _ => _.Value), "ViewData");
         }
     }
 }

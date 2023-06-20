@@ -13,7 +13,7 @@ class RedirectToActionResultConverter :
         var values = result.RouteValues;
         if (values != null && values.Any())
         {
-            writer.WriteMember(result, values.ToDictionary(x => x.Value!, x => x.Value), "RouteValues");
+            writer.WriteMember(result, values.ToDictionary(_ => _.Value!, _ => _.Value), "RouteValues");
         }
     }
 }

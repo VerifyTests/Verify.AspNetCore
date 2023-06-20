@@ -9,7 +9,7 @@ class AcceptedAtRouteResultConverter :
         var values = result.RouteValues;
         if (values != null && values.Any())
         {
-            writer.WriteMember(result, values.ToDictionary(x => x.Key, x => x.Value), "RouteValues");
+            writer.WriteMember(result, values.ToDictionary(_ => _.Key, _ => _.Value), "RouteValues");
         }
     }
 }
