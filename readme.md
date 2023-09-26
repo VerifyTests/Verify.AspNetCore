@@ -150,10 +150,10 @@ public class MyMiddleware
     public MyMiddleware(RequestDelegate next) =>
         this.next = next;
 
-    public async Task Invoke(HttpContext context)
+    public Task Invoke(HttpContext context)
     {
         context.Response.Headers.Add("headerKey", "headerValue");
-        await next(context);
+        return next(context);
     }
 }
 ```
