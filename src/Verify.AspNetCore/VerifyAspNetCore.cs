@@ -1,5 +1,4 @@
-﻿using Argon;
-using EmptyFiles;
+﻿using EmptyFiles;
 using Microsoft.AspNetCore.Mvc;
 
 namespace VerifyTests;
