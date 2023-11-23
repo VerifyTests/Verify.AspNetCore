@@ -25,9 +25,9 @@ static class Extensions
     public static Dictionary<string, string?> Cookies(this IHeaderDictionary headers) =>
         headers
             .Where(_ => _.Key == HeaderNames.SetCookie)
-            .Select(x =>
+            .Select(_ =>
             {
-                var stringSegment = x.Value.Single();
+                var stringSegment = _.Value.Single();
                 return SetCookieHeaderValue.Parse(stringSegment);
             })
             .ToDictionary(_ => _.Name.Value!, _ => _.Value.Value);
