@@ -85,7 +85,7 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (FileExtensions.IsText(extension))
+        if (FileExtensions.IsTextExtension(extension))
         {
             return new(info, extension, Encoding.UTF8.GetString(target.FileContents));
         }
@@ -102,7 +102,7 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (FileExtensions.IsText(extension))
+        if (FileExtensions.IsTextExtension(extension))
         {
             return new(info, extension, await File.ReadAllTextAsync(target.FileName));
         }
@@ -119,7 +119,7 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (FileExtensions.IsText(extension))
+        if (FileExtensions.IsTextExtension(extension))
         {
             return new(info, extension, await File.ReadAllTextAsync(target.FileName));
         }
@@ -136,7 +136,7 @@ public static partial class VerifyAspNetCore
             return new(info, Enumerable.Empty<Target>());
         }
 
-        if (FileExtensions.IsText(extension))
+        if (FileExtensions.IsTextExtension(extension))
         {
             return new(info, extension, await target.FileStream.ReadAsString());
         }
