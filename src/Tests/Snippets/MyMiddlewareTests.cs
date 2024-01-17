@@ -1,5 +1,4 @@
-﻿[UsesVerify]
-public class MyMiddlewareTests
+﻿public class MyMiddlewareTests
 {
     #region MyMiddlewareTest
     [Fact]

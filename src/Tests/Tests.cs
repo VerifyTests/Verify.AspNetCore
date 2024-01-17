@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-[UsesVerify]
 public class Tests
 {
     [Fact]
