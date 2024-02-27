@@ -1,13 +1,8 @@
-﻿public class MyMiddleware
+﻿public class MyMiddleware(RequestDelegate next)
 {
-    RequestDelegate next;
-
-    public MyMiddleware(RequestDelegate next) =>
-        this.next = next;
-
     public Task Invoke(HttpContext context)
     {
-        context.Response.Headers.Add("headerKey", "headerValue");
+        context.Response.Headers["headerKey"] = "headerValue";
         return next(context);
     }
 }

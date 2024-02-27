@@ -44,8 +44,8 @@ public class MyController :
     public ActionResult<List<DataItem>> Method(string input)
     {
         var headers = HttpContext.Response.Headers;
-        headers.Add("headerKey", "headerValue");
-        headers.Add("receivedInput", input);
+        headers["headerKey"] = "headerValue";
+        headers["receivedInput"] = input;
 
         var cookies = HttpContext.Response.Cookies;
         cookies.Append("cookieKey", "cookieValue");
@@ -58,16 +58,13 @@ public class MyController :
         return new(items);
     }
 
-    public class DataItem
+    public class DataItem(string value)
     {
-        public string Value { get; }
-
-        public DataItem(string value) =>
-            Value = value;
+        public string Value { get; } = value;
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyController.cs#L1-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyController.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyController.cs#L1-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyController.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -142,21 +139,16 @@ Given the following middleware:
 <!-- snippet: MyMiddleware.cs -->
 <a id='snippet-MyMiddleware.cs'></a>
 ```cs
-public class MyMiddleware
+public class MyMiddleware(RequestDelegate next)
 {
-    RequestDelegate next;
-
-    public MyMiddleware(RequestDelegate next) =>
-        this.next = next;
-
     public Task Invoke(HttpContext context)
     {
-        context.Response.Headers.Add("headerKey", "headerValue");
+        context.Response.Headers["headerKey"] = "headerValue";
         return next(context);
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyMiddleware.cs#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddleware.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyMiddleware.cs#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddleware.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:

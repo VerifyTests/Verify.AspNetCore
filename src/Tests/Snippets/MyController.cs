@@ -6,8 +6,8 @@ public class MyController :
     public ActionResult<List<DataItem>> Method(string input)
     {
         var headers = HttpContext.Response.Headers;
-        headers.Add("headerKey", "headerValue");
-        headers.Add("receivedInput", input);
+        headers["headerKey"] = "headerValue";
+        headers["receivedInput"] = input;
 
         var cookies = HttpContext.Response.Cookies;
         cookies.Append("cookieKey", "cookieValue");
@@ -20,11 +20,8 @@ public class MyController :
         return new(items);
     }
 
-    public class DataItem
+    public class DataItem(string value)
     {
-        public string Value { get; }
-
-        public DataItem(string value) =>
-            Value = value;
+        public string Value { get; } = value;
     }
 }
