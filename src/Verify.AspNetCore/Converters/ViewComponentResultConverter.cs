@@ -15,7 +15,7 @@ class ViewComponentResultConverter :
             writer.WriteMember(result, result.TempData.ToDictionary(_ => _.Key, _ => _.Value), "TempData");
         }
 
-        if (result.ViewData.Any())
+        if (result.ViewData.Count != 0)
         {
             writer.WriteMember(result, result.ViewData.ToDictionary(_ => _.Key, _ => _.Value), "ViewData");
         }

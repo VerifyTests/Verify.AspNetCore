@@ -9,9 +9,11 @@ class PageResultConverter :
         writer.WriteMember(result, result.ContentType, "ContentType");
         writer.WriteMember(result, result.Model, "Model");
 
-        if (result.ViewData.Any())
+        if (result.ViewData.Count == 0)
         {
-            writer.WriteMember(result, result.ViewData.ToDictionary(_ => _.Key, _ => _.Value), "ViewData");
+            return;
         }
+
+        writer.WriteMember(result, result.ViewData.ToDictionary(_ => _.Key, _ => _.Value), "ViewData");
     }
 }

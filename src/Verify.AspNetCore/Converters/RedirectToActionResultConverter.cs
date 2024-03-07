@@ -11,9 +11,11 @@ class RedirectToActionResultConverter :
         writer.WriteMember(result, result.Permanent, "Permanent");
         writer.WriteMember(result, result.PreserveMethod, "PreserveMethod");
         var values = result.RouteValues;
-        if (values != null && values.Any())
+        if (values == null || values.Count == 0)
         {
-            writer.WriteMember(result, values.ToDictionary(_ => _.Value!, _ => _.Value), "RouteValues");
+            return;
         }
+
+        writer.WriteMember(result, values.ToDictionary(_ => _.Value!, _ => _.Value), "RouteValues");
     }
 }
