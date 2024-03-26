@@ -19,13 +19,13 @@ https://nuget.org/packages/Verify.AspNetCore/
 Enable VerifyAspNetCore once at assembly load time:
 
 <!-- snippet: Enable -->
-<a id='snippet-enable'></a>
+<a id='snippet-Enable'></a>
 ```cs
 [ModuleInitializer]
 public static void Initialize() =>
     VerifyAspNetCore.Initialize();
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Enable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -70,7 +70,7 @@ public class MyController :
 This test:
 
 <!-- snippet: MyControllerTest -->
-<a id='snippet-mycontrollertest'></a>
+<a id='snippet-MyControllerTest'></a>
 ```cs
 [Fact]
 public Task Test()
@@ -93,7 +93,7 @@ public Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L5-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-mycontrollertest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L5-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:
@@ -154,7 +154,7 @@ public class MyMiddleware(RequestDelegate next)
 This test:
 
 <!-- snippet: MyMiddlewareTest -->
-<a id='snippet-mymiddlewaretest'></a>
+<a id='snippet-MyMiddlewareTest'></a>
 ```cs
 [Fact]
 public async Task Test()
@@ -178,7 +178,7 @@ public async Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.cs#L3-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-mymiddlewaretest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.cs#L3-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddlewareTest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:
@@ -205,7 +205,7 @@ Will result in the following verified file:
 `UseSpecificControllers` extends `IMvcBuilder` to allow integration testing of a web app using a specific controller scenario.
 
 <!-- snippet: TestController -->
-<a id='snippet-testcontroller'></a>
+<a id='snippet-TestController'></a>
 ```cs
 [Fact]
 public async Task ControllerIntegrationTest()
@@ -237,7 +237,7 @@ public class FooController :
         "Foo";
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L78-L110' title='Snippet source file'>snippet source</a> | <a href='#snippet-testcontroller' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L78-L110' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
