@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class BadRequestResultConverter :
+﻿class BadRequestResultConverter :
     ResultConverter<BadRequestResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, BadRequestResult result) =>

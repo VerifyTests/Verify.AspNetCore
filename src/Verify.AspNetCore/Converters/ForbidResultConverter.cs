@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class ForbidResultConverter :
+﻿class ForbidResultConverter :
     ResultConverter<ForbidResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, ForbidResult result)

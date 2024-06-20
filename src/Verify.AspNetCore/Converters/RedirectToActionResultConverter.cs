@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class RedirectToActionResultConverter :
+﻿class RedirectToActionResultConverter :
     ResultConverter<RedirectToActionResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, RedirectToActionResult result)

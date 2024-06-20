@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class CreatedResultConverter :
+﻿class CreatedResultConverter :
     ResultConverter<CreatedResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, CreatedResult result)

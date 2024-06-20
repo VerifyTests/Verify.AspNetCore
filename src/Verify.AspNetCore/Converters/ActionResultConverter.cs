@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class ActionResultConverter :
+﻿class ActionResultConverter :
     WriteOnlyJsonConverter
 {
     public override void Write(VerifyJsonWriter writer, object action)

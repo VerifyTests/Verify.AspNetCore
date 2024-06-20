@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class SignOutResultConverter :
+﻿class SignOutResultConverter :
     ResultConverter<SignOutResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, SignOutResult result)

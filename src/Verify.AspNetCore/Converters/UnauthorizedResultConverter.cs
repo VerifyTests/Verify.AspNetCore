@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class UnauthorizedResultConverter :
+﻿class UnauthorizedResultConverter :
     ResultConverter<UnauthorizedResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, UnauthorizedResult result) =>

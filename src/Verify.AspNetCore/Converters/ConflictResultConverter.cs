@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class ConflictResultConverter :
+﻿class ConflictResultConverter :
     ResultConverter<ConflictResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, ConflictResult result) =>

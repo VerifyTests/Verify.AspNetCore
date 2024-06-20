@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class NotFoundObjectResultConverter :
+﻿class NotFoundObjectResultConverter :
     ResultConverter<NotFoundObjectResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, NotFoundObjectResult result) =>

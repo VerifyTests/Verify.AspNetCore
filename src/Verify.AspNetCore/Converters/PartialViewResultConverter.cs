@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class PartialViewResultConverter :
+﻿class PartialViewResultConverter :
     ResultConverter<PartialViewResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, PartialViewResult result)

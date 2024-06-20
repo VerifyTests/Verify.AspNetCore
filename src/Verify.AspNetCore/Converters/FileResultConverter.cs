@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-static class FileResultConverter
+﻿static class FileResultConverter
 {
     public static void WriteFileData(VerifyJsonWriter writer, FileResult result)
     {

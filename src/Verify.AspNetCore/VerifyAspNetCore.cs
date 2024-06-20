@@ -1,5 +1,4 @@
 ﻿using EmptyFiles;
-using Microsoft.AspNetCore.Mvc;
 
 namespace VerifyTests;
 
@@ -82,7 +81,7 @@ public static partial class VerifyAspNetCore
 
         if (!HttpExtensions.TryGetMediaTypeExtension(target.ContentType, out var extension))
         {
-            return new(info, Enumerable.Empty<Target>());
+            return new(info, []);
         }
 
         if (FileExtensions.IsTextExtension(extension))
@@ -99,7 +98,7 @@ public static partial class VerifyAspNetCore
 
         if (!HttpExtensions.TryGetMediaTypeExtension(target.ContentType, out var extension))
         {
-            return new(info, Enumerable.Empty<Target>());
+            return new(info, []);
         }
 
         if (FileExtensions.IsTextExtension(extension))
@@ -116,7 +115,7 @@ public static partial class VerifyAspNetCore
 
         if (!HttpExtensions.TryGetMediaTypeExtension(target.ContentType, out var extension))
         {
-            return new(info, Enumerable.Empty<Target>());
+            return new(info, []);
         }
 
         if (FileExtensions.IsTextExtension(extension))
@@ -133,7 +132,7 @@ public static partial class VerifyAspNetCore
 
         if (!HttpExtensions.TryGetMediaTypeExtension(target.ContentType, out var extension))
         {
-            return new(info, Enumerable.Empty<Target>());
+            return new(info, []);
         }
 
         if (FileExtensions.IsTextExtension(extension))

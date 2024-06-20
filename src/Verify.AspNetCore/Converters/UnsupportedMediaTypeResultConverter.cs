@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class UnsupportedMediaTypeResultConverter :
+﻿class UnsupportedMediaTypeResultConverter :
     ResultConverter<UnsupportedMediaTypeResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, UnsupportedMediaTypeResult result) =>

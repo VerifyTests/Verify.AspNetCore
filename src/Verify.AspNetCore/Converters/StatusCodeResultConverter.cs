@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class StatusCodeResultConverter :
+﻿class StatusCodeResultConverter :
     ResultConverter<StatusCodeResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, StatusCodeResult result) =>

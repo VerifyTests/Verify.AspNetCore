@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class VirtualFileResultConverter :
+﻿class VirtualFileResultConverter :
     ResultConverter<VirtualFileResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, VirtualFileResult result)

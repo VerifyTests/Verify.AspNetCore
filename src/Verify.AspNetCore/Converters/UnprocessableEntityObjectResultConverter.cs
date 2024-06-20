@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class UnprocessableEntityObjectResultConverter :
+﻿class UnprocessableEntityObjectResultConverter :
     ResultConverter<UnprocessableEntityObjectResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, UnprocessableEntityObjectResult result) =>

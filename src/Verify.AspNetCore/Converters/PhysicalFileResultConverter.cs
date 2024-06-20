@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-class PhysicalFileResultConverter :
+﻿class PhysicalFileResultConverter :
     ResultConverter<PhysicalFileResult>
 {
     protected override void InnerWrite(VerifyJsonWriter writer, PhysicalFileResult result)

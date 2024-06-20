@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-abstract class ResultConverter<T> :
+﻿abstract class ResultConverter<T> :
     WriteOnlyJsonConverter<T>
     where T : ActionResult
 {
