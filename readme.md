@@ -36,8 +36,6 @@ Given the following controller:
 <!-- snippet: MyController.cs -->
 <a id='snippet-MyController.cs'></a>
 ```cs
-using Microsoft.AspNetCore.Mvc;
-
 public class MyController :
     Controller
 {
@@ -64,7 +62,7 @@ public class MyController :
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyController.cs#L1-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyController.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyController.cs#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyController.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This test:
@@ -93,7 +91,7 @@ public Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L5-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L3-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:
@@ -237,7 +235,7 @@ public class FooController :
         "Foo";
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L78-L110' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L77-L109' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

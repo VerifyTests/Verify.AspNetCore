@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-public class MyControllerTests
+﻿public class MyControllerTests
 {
     #region MyControllerTest
     [Fact]

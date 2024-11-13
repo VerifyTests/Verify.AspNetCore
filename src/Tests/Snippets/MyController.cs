@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-public class MyController :
+﻿public class MyController :
     Controller
 {
     public ActionResult<List<DataItem>> Method(string input)

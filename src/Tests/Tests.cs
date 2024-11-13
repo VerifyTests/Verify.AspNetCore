@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-public class Tests
+﻿public class Tests
 {
     [Fact]
     public Task ChallengeResult()
@@ -57,7 +55,8 @@ public class Tests
     [Fact]
     public Task FileStreamResult()
     {
-        var result = new FileStreamResult(new MemoryStream("the content"u8.ToArray()), "text/plain");
+        var stream = new MemoryStream("the content"u8.ToArray());
+        var result = new FileStreamResult(stream, "text/plain");
         return Verify(result);
     }
 
