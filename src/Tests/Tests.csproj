@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <NoWarn>xUnit1051</NoWarn>
     <OutputType>Exe</OutputType>
+    <RootNamespace>testing</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
