@@ -1,7 +1,8 @@
-﻿public class MyControllerTests
+﻿[TestFixture]
+public class MyControllerTests
 {
     #region MyControllerTest
-    [Fact]
+    [Test]
     public Task Test()
     {
         var context = new ControllerContext

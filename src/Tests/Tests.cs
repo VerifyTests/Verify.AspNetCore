@@ -1,6 +1,7 @@
-﻿public class Tests
+﻿[TestFixture]
+public class Tests
 {
-    [Fact]
+    [Test]
     public Task ChallengeResult()
     {
         var result = new ChallengeResult(
@@ -15,7 +16,7 @@
         return Verify(result);
     }
 
-    [Fact]
+    [Test]
     public Task HttpContext()
     {
         var context = new DefaultHttpContext
@@ -34,25 +35,25 @@
         return Verify(context);
     }
 
-    [Fact]
+    [Test]
     public Task EmptyHttpContext() =>
         Verify(new DefaultHttpContext());
 
-    [Fact]
+    [Test]
     public Task HeaderDictionary() =>
         Verify(new HeaderDictionary
         {
             {"key", "value"}
         });
 
-    [Fact]
+    [Test]
     public Task FileContentResult()
     {
         var result = new FileContentResult("the content"u8.ToArray(), "text/plain");
         return Verify(result);
     }
 
-    [Fact]
+    [Test]
     public Task FileStreamResult()
     {
         var stream = new MemoryStream("the content"u8.ToArray());
@@ -60,14 +61,14 @@
         return Verify(result);
     }
 
-    [Fact]
+    [Test]
     public Task PhysicalFileResult()
     {
         var result = new PhysicalFileResult("target.txt", "text/plain");
         return Verify(result);
     }
 
-    [Fact]
+    [Test]
     public Task VirtualFileResult()
     {
         var result = new VirtualFileResult("target.txt", "text/plain");
@@ -76,7 +77,7 @@
 
     #region TestController
 
-    [Fact]
+    [Test]
     public async Task ControllerIntegrationTest()
     {
         var builder = WebApplication.CreateBuilder();

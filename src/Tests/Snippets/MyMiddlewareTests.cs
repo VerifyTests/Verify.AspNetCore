@@ -1,7 +1,8 @@
-﻿public class MyMiddlewareTests
+﻿[TestFixture]
+public class MyMiddlewareTests
 {
     #region MyMiddlewareTest
-    [Fact]
+    [Test]
     public async Task Test()
     {
         var nextCalled = false;

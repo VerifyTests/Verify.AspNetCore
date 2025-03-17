@@ -70,7 +70,7 @@ This test:
 <!-- snippet: MyControllerTest -->
 <a id='snippet-MyControllerTest'></a>
 ```cs
-[Fact]
+[Test]
 public Task Test()
 {
     var context = new ControllerContext
@@ -91,7 +91,7 @@ public Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L3-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L4-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:
@@ -154,7 +154,7 @@ This test:
 <!-- snippet: MyMiddlewareTest -->
 <a id='snippet-MyMiddlewareTest'></a>
 ```cs
-[Fact]
+[Test]
 public async Task Test()
 {
     var nextCalled = false;
@@ -176,7 +176,7 @@ public async Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.cs#L3-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddlewareTest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.cs#L4-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddlewareTest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:
@@ -205,7 +205,7 @@ Will result in the following verified file:
 <!-- snippet: TestController -->
 <a id='snippet-TestController'></a>
 ```cs
-[Fact]
+[Test]
 public async Task ControllerIntegrationTest()
 {
     var builder = WebApplication.CreateBuilder();
@@ -235,7 +235,7 @@ public class FooController :
         "Foo";
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L77-L109' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L78-L110' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
