@@ -111,7 +111,6 @@ Will result in the following verified file:
   context: {
     HttpContext: {
       Request: {},
-      IsAbortedRequested: false,
       Response: {
         StatusCode: OK,
         Headers: {
@@ -126,7 +125,7 @@ Will result in the following verified file:
   }
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyControllerTests.Test.verified.txt#L1-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTests.Test.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyControllerTests.Test.verified.txt#L1-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTests.Test.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
