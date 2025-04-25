@@ -267,7 +267,6 @@ Results in:
 {
   StatusCode: OK,
   Headers: {
-    Content-Length: 15,
     Content-Type: application/json
   },
   Value: {
@@ -275,7 +274,7 @@ Results in:
   }
 }
 ```
-<sup><a href='/src/Tests/Tests.ScrubHttpResponse.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.ScrubHttpResponse.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.ScrubHttpResponse.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.ScrubHttpResponse.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Icon
