@@ -1,4 +1,5 @@
-﻿using EmptyFiles;
+﻿using System.Diagnostics.CodeAnalysis;
+using EmptyFiles;
 
 namespace VerifyTests;
 
@@ -137,7 +138,7 @@ public static partial class VerifyAspNetCore
 
         if (FileExtensions.IsTextExtension(extension))
         {
-            return new(info, extension, await target.FileStream.ReadAsString());
+            return new(info, extension, await target.FileStream.ReadAsStringAsync());
         }
 
         return new(info, extension, target.FileStream);
@@ -151,4 +152,34 @@ public static partial class VerifyAspNetCore
             target.EnableRangeProcessing,
             target.ContentType
         );
+
+    public static void ScrubAspTextResponse(
+        this VerifySettings settings,
+        Func<string, string> scrub) =>
+        settings.Context["ScrubHttpResponseKey"] = scrub;
+
+    public static SettingsTask ScrubAspTextResponse(
+        this SettingsTask settings,
+        Func<string, string> scrub)
+    {
+        settings.CurrentSettings.ScrubAspTextResponse(scrub);
+        return settings;
+    }
+
+    internal static bool HasHttpTextResponseScrubber(this VerifyJsonWriter writer) =>
+        writer.Context.ContainsKey("ScrubHttpResponseKey");
+
+    internal static bool TryGetHttpTextResponseScrubber(
+        this VerifyJsonWriter writer ,
+        [NotNullWhen(true)]out Func<string, string>? scrubber)
+    {
+        if (writer.Context.TryGetValue("ScrubHttpResponseKey", out var scrubberValue))
+        {
+            scrubber = (Func<string, string>)scrubberValue;
+            return true;
+        }
+
+        scrubber = null;
+        return false;
+    }
 }
