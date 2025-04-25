@@ -1,0 +1,9 @@
+﻿{
+  StatusCode: OK,
+  Headers: {
+    Content-Type: application/json
+  },
+  Value: {
+    key: value
+  }
+}

@@ -234,9 +234,49 @@ public class FooController :
         "Foo";
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L78-L110' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L105-L137' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
+
+
+## ScrubHttpTextResponse
+
+<!-- snippet: ScrubHttpTextResponse -->
+<a id='snippet-ScrubHttpTextResponse'></a>
+```cs
+[Test]
+public Task ScrubHttpResponse()
+{
+    var context = new DefaultHttpContext();
+    var buffer = "{\"key\":\"value\"}"u8;
+    var response = context.Response;
+    response.Body = new MemoryStream(buffer.ToArray());;
+    response.ContentType = "application/json";
+    return Verify(response)
+        .ScrubAspTextResponse(_ => _.Replace("value", "replace"));
+}
+```
+<sup><a href='/src/Tests/Tests.cs#L30-L44' title='Snippet source file'>snippet source</a> | <a href='#snippet-ScrubHttpTextResponse' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+Results in:
+
+<!-- snippet: Tests.ScrubHttpResponse.verified.txt -->
+<a id='snippet-Tests.ScrubHttpResponse.verified.txt'></a>
+```txt
+{
+  StatusCode: OK,
+  Headers: {
+    Content-Length: 15,
+    Content-Type: application/json
+  },
+  Value: {
+    key: replace
+  }
+}
+```
+<sup><a href='/src/Tests/Tests.ScrubHttpResponse.verified.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.ScrubHttpResponse.verified.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 ## Icon
 

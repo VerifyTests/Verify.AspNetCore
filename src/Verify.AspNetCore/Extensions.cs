@@ -10,11 +10,17 @@ static class Extensions
         }
     }
 
-    public static async Task<string> ReadAsString(this Stream stream)
+    public static async Task<string> ReadAsStringAsync(this Stream stream)
     {
         stream.MoveToStart();
         using StreamReader reader = new(stream);
         return await reader.ReadToEndAsync();
+    }
+    public static string ReadAsString(this Stream stream)
+    {
+        stream.MoveToStart();
+        using StreamReader reader = new(stream);
+        return reader.ReadToEnd();
     }
 
     public static Dictionary<string, string> NotCookies(this IHeaderDictionary headers) =>

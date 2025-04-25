@@ -15,10 +15,12 @@
     <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="Verify.NUnit" />
+    <ProjectReference Include="..\SampleWebApi\SampleWebApi.csproj" />
     <ProjectReference Include="..\Verify.AspNetCore\Verify.AspNetCore.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
     <None Update="target.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
   </ItemGroup>
 </Project>
