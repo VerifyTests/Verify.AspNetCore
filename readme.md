@@ -241,6 +241,8 @@ public class FooController :
 
 ## ScrubHttpTextResponse
 
+The ScrubHttpTextResponse feature allows modification  or scrubbing of the content of an HTTP response before verification. This is useful for scenarios where the response contains dynamic or sensitive data that needs to be replaced or removed.
+
 <!-- snippet: ScrubHttpTextResponse -->
 <a id='snippet-ScrubHttpTextResponse'></a>
 ```cs
@@ -276,6 +278,7 @@ Results in:
 ```
 <sup><a href='/src/Tests/Tests.ScrubHttpResponse.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.ScrubHttpResponse.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
 
 ## Icon
 
