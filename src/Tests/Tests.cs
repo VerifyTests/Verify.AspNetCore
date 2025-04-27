@@ -23,7 +23,7 @@ public class Tests
         var buffer = "{\"key\":\"value\"}"u8;
         var response = context.Response;
         response.Body = new MemoryStream(buffer.ToArray());
-        response.ContentType = "application/json";
+        response.ContentType = "application/json; charset=utf-8";
         return Verify(response);
     }
 
