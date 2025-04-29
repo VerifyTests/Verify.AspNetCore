@@ -170,12 +170,12 @@ public static partial class VerifyAspNetCore
         writer.Context.ContainsKey("ScrubHttpResponseKey");
 
     internal static bool TryGetHttpTextResponseScrubber(
-        this VerifyJsonWriter writer ,
-        [NotNullWhen(true)]out Func<string, string>? scrubber)
+        this VerifyJsonWriter writer,
+        [NotNullWhen(true)] out Func<string, string>? scrubber)
     {
         if (writer.Context.TryGetValue("ScrubHttpResponseKey", out var scrubberValue))
         {
-            scrubber = (Func<string, string>)scrubberValue;
+            scrubber = (Func<string, string>) scrubberValue;
             return true;
         }
 
