@@ -238,14 +238,15 @@ public class FooController :
 <!-- endSnippet -->
 
 
+## ScrubAspTextResponse
 
-## ScrubHttpTextResponse
+The ScrubAspTextResponse feature allows modification  or scrubbing of the content of an HTTP response before verification. This is useful for scenarios where the response contains dynamic or sensitive data that needs to be replaced or removed.
 
-<!-- snippet: ScrubHttpTextResponse -->
-<a id='snippet-ScrubHttpTextResponse'></a>
+<!-- snippet: ScrubAspTextResponse -->
+<a id='snippet-ScrubAspTextResponse'></a>
 ```cs
 [Test]
-public Task ScrubHttpResponse()
+public Task ScrubAspTextResponse()
 {
     var context = new DefaultHttpContext();
     var buffer = "{\"key\":\"value\"}"u8;
@@ -256,13 +257,13 @@ public Task ScrubHttpResponse()
         .ScrubAspTextResponse(_ => _.Replace("value", "replace"));
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L30-L44' title='Snippet source file'>snippet source</a> | <a href='#snippet-ScrubHttpTextResponse' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L30-L44' title='Snippet source file'>snippet source</a> | <a href='#snippet-ScrubAspTextResponse' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Results in:
 
-<!-- snippet: Tests.ScrubHttpResponse.verified.txt -->
-<a id='snippet-Tests.ScrubHttpResponse.verified.txt'></a>
+<!-- snippet: Tests.ScrubAspTextResponse.verified.txt -->
+<a id='snippet-Tests.ScrubAspTextResponse.verified.txt'></a>
 ```txt
 {
   StatusCode: OK,
@@ -274,8 +275,9 @@ Results in:
   }
 }
 ```
-<sup><a href='/src/Tests/Tests.ScrubHttpResponse.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.ScrubHttpResponse.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.ScrubAspTextResponse.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.ScrubAspTextResponse.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
 
 ## Icon
 

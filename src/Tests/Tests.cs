@@ -27,10 +27,10 @@ public class Tests
         return Verify(response);
     }
 
-    #region ScrubHttpTextResponse
+    #region ScrubAspTextResponse
 
     [Test]
-    public Task ScrubHttpResponse()
+    public Task ScrubAspTextResponse()
     {
         var context = new DefaultHttpContext();
         var buffer = "{\"key\":\"value\"}"u8;
