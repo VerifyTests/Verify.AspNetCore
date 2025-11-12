@@ -35,7 +35,7 @@ public class Tests
         var context = new DefaultHttpContext();
         var buffer = "{\"key\":\"value\"}"u8;
         var response = context.Response;
-        response.Body = new MemoryStream(buffer.ToArray());;
+        response.Body = new MemoryStream(buffer.ToArray());
         response.ContentType = "application/json";
         return Verify(response)
             .ScrubAspTextResponse(_ => _.Replace("value", "replace"));
