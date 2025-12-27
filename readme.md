@@ -1,7 +1,7 @@
 # <img src="/src/icon.png" height="30px"> Verify.AspNetCore
 
 [![Discussions](https://img.shields.io/badge/Verify-Discussions-yellow?svg=true&label=)](https://github.com/orgs/VerifyTests/discussions)
-[![Build status](https://ci.appveyor.com/api/projects/status/u4try12l1iimal2l?svg=true)](https://ci.appveyor.com/project/SimonCropp/verify-aspnetcore)
+[![Build status](https://img.shields.io/appveyor/build/SimonCropp/verify-aspnetcore)](https://ci.appveyor.com/project/SimonCropp/verify-aspnetcore)
 [![NuGet Status](https://img.shields.io/nuget/v/Verify.AspNetCore.svg)](https://www.nuget.org/packages/Verify.AspNetCore/)
 
 Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of AspNetCore bits.<!-- singleLineInclude: intro. path: /docs/intro.include.md -->
