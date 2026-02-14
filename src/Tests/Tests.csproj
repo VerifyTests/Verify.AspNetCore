@@ -15,6 +15,11 @@
     <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="Verify.NUnit" />
+    <PackageReference Include="Argon" />
+    <PackageReference Include="DiffEngine" />
+    <PackageReference Include="EmptyFiles" />
+    <PackageReference Include="SimpleInfoName" />
+    <PackageReference Include="Verify" />
     <ProjectReference Include="..\SampleWebApi\SampleWebApi.csproj" />
     <ProjectReference Include="..\Verify.AspNetCore\Verify.AspNetCore.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
