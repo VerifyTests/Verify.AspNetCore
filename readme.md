@@ -105,7 +105,7 @@ public Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L4-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyControllerTests.cs#L3-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyControllerTest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:
@@ -189,7 +189,7 @@ public async Task Test()
         });
 }
 ```
-<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.cs#L4-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddlewareTest' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/MyMiddlewareTests.cs#L3-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-MyMiddlewareTest' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Will result in the following verified file:
@@ -248,7 +248,7 @@ public class FooController :
         "Foo";
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L105-L137' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L106-L138' title='Snippet source file'>snippet source</a> | <a href='#snippet-TestController' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -271,7 +271,7 @@ public Task ScrubAspTextResponse()
         .ScrubAspTextResponse(_ => _.Replace("value", "replace"));
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L30-L44' title='Snippet source file'>snippet source</a> | <a href='#snippet-ScrubAspTextResponse' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L31-L45' title='Snippet source file'>snippet source</a> | <a href='#snippet-ScrubAspTextResponse' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Results in:

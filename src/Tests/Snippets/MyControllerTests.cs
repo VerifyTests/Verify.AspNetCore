@@ -1,4 +1,3 @@
-﻿[TestFixture]
 public class MyControllerTests
 {
     #region MyControllerTest

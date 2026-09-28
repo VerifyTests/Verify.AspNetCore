@@ -1,4 +1,5 @@
-﻿[TestFixture]
+namespace VerifyAspNetCoreTests;
+
 public class Tests
 {
     [Test]
