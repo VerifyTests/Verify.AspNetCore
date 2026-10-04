@@ -20,6 +20,7 @@
     <ProjectReference Include="..\SampleWebApi\SampleWebApi.csproj" />
     <ProjectReference Include="..\Verify.AspNetCore\Verify.AspNetCore.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <PackageReference Include="ProjectFiles" PrivateAssets="all" />
     <None Update="target.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -92,7 +92,7 @@ public class Tests
     [Test]
     public Task PhysicalFileResult()
     {
-        var result = new PhysicalFileResult("target.txt", "text/plain");
+        var result = new PhysicalFileResult(ProjectFiles.target_txt, "text/plain");
         return Verify(result);
     }
 
