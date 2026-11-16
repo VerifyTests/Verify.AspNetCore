@@ -13,5 +13,9 @@
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <Verify_SponsorshipExemption>OpenSource</Verify_SponsorshipExemption>
     <Verify_SponsorshipExemptionUntil>2027-08</Verify_SponsorshipExemptionUntil>
+    <!-- In Debug the .NET 11 SDK gives every Web SDK project a hot reload JS initializer. Those from
+         referenced Web SDK projects reach Tests without endpoints and fail its build. Nothing here
+         uses hot reload. -->
+    <EnableHotReloadInRuntimeConfigDevFile>false</EnableHotReloadInRuntimeConfigDevFile>
   </PropertyGroup>
 </Project>

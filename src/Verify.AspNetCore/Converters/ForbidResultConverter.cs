@@ -13,7 +13,8 @@
         }
 
         var properties = result.Properties;
-        if (properties != null && properties.Items.Any())
+        if (properties != null &&
+            properties.Items.Count != 0)
         {
             writer.WriteMember(result, properties.Items, "Properties");
         }

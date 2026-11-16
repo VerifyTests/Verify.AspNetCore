@@ -8,7 +8,7 @@
         writer.WriteMember(result, result.ViewComponentName, "ViewComponentName");
         writer.WriteMember(result, result.ViewComponentType?.FullName, "ViewComponentType");
 
-        if (result.TempData.Any())
+        if (result.TempData.Count != 0)
         {
             writer.WriteMember(result, result.TempData.ToDictionary(_ => _.Key, _ => _.Value), "TempData");
         }
