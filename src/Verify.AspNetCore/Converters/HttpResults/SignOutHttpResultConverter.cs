@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-
 class SignOutHttpResultConverter :
     ResultConverter<SignOutHttpResult>
 {

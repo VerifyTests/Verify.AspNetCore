@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-
 class ContentHttpResultConverter :
     ResultConverter<ContentHttpResult>
 {

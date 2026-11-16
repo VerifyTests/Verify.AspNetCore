@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-
 class RedirectToRouteHttpResultConverter :
     ResultConverter<RedirectToRouteHttpResult>
 {
@@ -10,7 +8,7 @@ class RedirectToRouteHttpResultConverter :
         writer.WriteMember(result, result.PreserveMethod, "PreserveMethod");
         writer.WriteMember(result, result.RouteName, "RouteName");
         var values = result.RouteValues;
-        if (values == null || values.Count == 0)
+        if (values.Count == 0)
         {
             return;
         }

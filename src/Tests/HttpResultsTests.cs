@@ -26,7 +26,7 @@ public class HttpResultsTests
             Unauthorized = TypedResults.Unauthorized(),
             StatusCode = TypedResults.StatusCode(418),
             ServerSentEvents = TypedResults.ServerSentEvents(AsyncEnumerable.Empty<string>()),
-            Empty = TypedResults.Empty
+            TypedResults.Empty
         });
 
     [Test]
@@ -78,7 +78,7 @@ public class HttpResultsTests
                     "key", "value"
                 }
             });
-        var principal = new ClaimsPrincipal(new ClaimsIdentity([new Claim("name", "user")], "scheme"));
+        var principal = new ClaimsPrincipal(new ClaimsIdentity([new("name", "user")], "scheme"));
         return Verify(new
         {
             Challenge = TypedResults.Challenge(properties, ["scheme"]),

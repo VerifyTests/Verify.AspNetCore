@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-
 class Utf8ContentHttpResultConverter :
     ResultConverter<Utf8ContentHttpResult>
 {

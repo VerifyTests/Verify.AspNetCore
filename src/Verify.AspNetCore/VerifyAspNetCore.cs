@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using EmptyFiles;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace VerifyTests;
 

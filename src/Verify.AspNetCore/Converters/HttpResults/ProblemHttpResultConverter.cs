@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-
 class ProblemHttpResultConverter() :
     HttpResultConverter(
         typeof(ProblemHttpResult),
