@@ -1,0 +1,5 @@
+﻿{
+  EnableRangeProcessing: false,
+  ContentType: text/plain,
+  FileLength: 11
+}

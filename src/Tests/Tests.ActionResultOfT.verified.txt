@@ -1,0 +1,7 @@
+﻿{
+  WithValue: the value,
+  WithResult: {
+    ResultType: NotFoundResult,
+    StatusCode: 404
+  }
+}

@@ -1,0 +1,18 @@
+﻿{
+  Ok: {
+    ResultType: OkResult,
+    StatusCode: 200
+  },
+  NotFound: {
+    ResultType: NotFoundResult,
+    StatusCode: 404
+  },
+  AntiforgeryValidationFailed: {
+    ResultType: AntiforgeryValidationFailedResult,
+    StatusCode: 400
+  },
+  StatusCode: {
+    ResultType: StatusCodeResult,
+    StatusCode: 418
+  }
+}

@@ -1,0 +1,66 @@
+﻿{
+  Created: {
+    ResultType: Created,
+    Location: /items/1,
+    StatusCode: 201
+  },
+  CreatedOfT: {
+    ResultType: Created,
+    Location: /items/1,
+    Value: {
+      Name: item
+    },
+    StatusCode: 201
+  },
+  Accepted: {
+    ResultType: Accepted,
+    Location: /items/1,
+    StatusCode: 202
+  },
+  AcceptedOfT: {
+    ResultType: Accepted,
+    Location: /items/1,
+    Value: {
+      Name: item
+    },
+    StatusCode: 202
+  },
+  CreatedAtRoute: {
+    ResultType: CreatedAtRoute,
+    RouteName: route,
+    RouteValues: {
+      id: 1
+    },
+    StatusCode: 201
+  },
+  CreatedAtRouteOfT: {
+    ResultType: CreatedAtRoute,
+    RouteName: route,
+    RouteValues: {
+      id: 1
+    },
+    Value: {
+      Name: item
+    },
+    StatusCode: 201
+  },
+  AcceptedAtRoute: {
+    ResultType: AcceptedAtRoute,
+    RouteName: route,
+    RouteValues: {
+      id: 1
+    },
+    StatusCode: 202
+  },
+  AcceptedAtRouteOfT: {
+    ResultType: AcceptedAtRoute,
+    RouteName: route,
+    RouteValues: {
+      id: 1
+    },
+    Value: {
+      Name: item
+    },
+    StatusCode: 202
+  }
+}

@@ -1,0 +1,71 @@
+﻿{
+  Ok: {
+    ResultType: OkObjectResult,
+    Value: {
+      Name: item
+    },
+    StatusCode: 200
+  },
+  Created: {
+    ResultType: CreatedResult,
+    Location: /items/1,
+    Value: {
+      Name: item
+    },
+    StatusCode: 201
+  },
+  Accepted: {
+    ResultType: AcceptedResult,
+    Location: /items/1,
+    Value: {
+      Name: item
+    },
+    StatusCode: 202
+  },
+  CreatedAtAction: {
+    ResultType: CreatedAtActionResult,
+    ActionName: Get,
+    ControllerName: Items,
+    RouteValues: {
+      id: 1
+    },
+    Value: {
+      Name: item
+    },
+    StatusCode: 201
+  },
+  AcceptedAtAction: {
+    ResultType: AcceptedAtActionResult,
+    ActionName: Get,
+    ControllerName: Items,
+    RouteValues: {
+      id: 1
+    },
+    Value: {
+      Name: item
+    },
+    StatusCode: 202
+  },
+  CreatedAtRoute: {
+    ResultType: CreatedAtRouteResult,
+    RouteName: route,
+    RouteValues: {
+      id: 1
+    },
+    Value: {
+      Name: item
+    },
+    StatusCode: 201
+  },
+  AcceptedAtRoute: {
+    ResultType: AcceptedAtRouteResult,
+    RouteName: route,
+    RouteValues: {
+      id: 1
+    },
+    Value: {
+      Name: item
+    },
+    StatusCode: 202
+  }
+}

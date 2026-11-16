@@ -1,0 +1,33 @@
+﻿{
+  Redirect: {
+    ResultType: RedirectHttpResult,
+    Url: /target,
+    PreserveMethod: false,
+    Permanent: false,
+    AcceptLocalUrlOnly: false
+  },
+  PermanentRedirect: {
+    ResultType: RedirectHttpResult,
+    Url: /target,
+    PreserveMethod: true,
+    Permanent: true,
+    AcceptLocalUrlOnly: false
+  },
+  LocalRedirect: {
+    ResultType: RedirectHttpResult,
+    Url: /target,
+    PreserveMethod: false,
+    Permanent: false,
+    AcceptLocalUrlOnly: true
+  },
+  RedirectToRoute: {
+    ResultType: RedirectToRouteHttpResult,
+    Fragment: section,
+    Permanent: false,
+    PreserveMethod: false,
+    RouteName: route,
+    RouteValues: {
+      id: 1
+    }
+  }
+}

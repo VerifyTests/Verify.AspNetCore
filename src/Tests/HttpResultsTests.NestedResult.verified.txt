@@ -1,0 +1,7 @@
+﻿{
+  ResultType: Ok,
+  Value: {
+    Name: item
+  },
+  StatusCode: 200
+}

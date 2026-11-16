@@ -1,0 +1,4 @@
+﻿{
+  EnableRangeProcessing: false,
+  ContentType: text/plain
+}
