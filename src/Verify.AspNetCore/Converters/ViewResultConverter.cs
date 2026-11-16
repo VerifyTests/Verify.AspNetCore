@@ -11,7 +11,7 @@
             writer.WriteMember(result, result.ViewData.ToDictionary(_ => _.Key, _ => _.Value), "ViewData");
         }
 
-        if (result.TempData.Any())
+        if (result.TempData.Count != 0)
         {
             writer.WriteMember(result, result.TempData.ToDictionary(_ => _.Key, _ => _.Value), "TempData");
         }
