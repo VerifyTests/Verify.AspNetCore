@@ -1,0 +1,44 @@
+﻿{
+  Json: {
+    ResultType: JsonHttpResult,
+    Value: {
+      Name: item
+    }
+  },
+  Content: {
+    ResultType: ContentHttpResult,
+    ResponseContent: the text,
+    ContentType: text/plain
+  },
+  Utf8Content: {
+    ResultType: Utf8ContentHttpResult,
+    ResponseContent: the text,
+    ContentType: text/plain
+  },
+  Problem: {
+    ResultType: ProblemHttpResult,
+    StatusCode: 500,
+    ContentType: application/problem+json,
+    ProblemDetails: {
+      Type: https://tools.ietf.org/html/rfc9110#section-15.6.1,
+      Title: Internal Server Error,
+      Status: 500,
+      Detail: the detail
+    }
+  },
+  ValidationProblem: {
+    ResultType: ValidationProblem,
+    StatusCode: 400,
+    ContentType: application/problem+json,
+    ProblemDetails: {
+      Errors: {
+        field: [
+          required
+        ]
+      },
+      Type: https://tools.ietf.org/html/rfc9110#section-15.5.1,
+      Title: One or more validation errors occurred.,
+      Status: 400
+    }
+  }
+}

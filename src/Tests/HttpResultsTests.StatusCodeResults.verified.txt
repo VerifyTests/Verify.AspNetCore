@@ -1,0 +1,75 @@
+﻿{
+  Ok: {
+    ResultType: Ok,
+    StatusCode: 200
+  },
+  OkOfT: {
+    ResultType: Ok,
+    Value: {
+      Name: item
+    },
+    StatusCode: 200
+  },
+  BadRequest: {
+    ResultType: BadRequest,
+    StatusCode: 400
+  },
+  BadRequestOfT: {
+    ResultType: BadRequest,
+    Value: {
+      Name: item
+    },
+    StatusCode: 400
+  },
+  Conflict: {
+    ResultType: Conflict,
+    Value: {
+      Name: item
+    },
+    StatusCode: 409
+  },
+  NotFound: {
+    ResultType: NotFound,
+    StatusCode: 404
+  },
+  NotFoundOfT: {
+    ResultType: NotFound,
+    Value: {
+      Name: item
+    },
+    StatusCode: 404
+  },
+  UnprocessableEntity: {
+    ResultType: UnprocessableEntity,
+    Value: {
+      Name: item
+    },
+    StatusCode: 422
+  },
+  InternalServerError: {
+    ResultType: InternalServerError,
+    Value: {
+      Name: item
+    },
+    StatusCode: 500
+  },
+  NoContent: {
+    ResultType: NoContent,
+    StatusCode: 204
+  },
+  Unauthorized: {
+    ResultType: UnauthorizedHttpResult,
+    StatusCode: 401
+  },
+  StatusCode: {
+    ResultType: StatusCodeHttpResult,
+    StatusCode: 418
+  },
+  ServerSentEvents: {
+    ResultType: ServerSentEventsResult,
+    StatusCode: 200
+  },
+  Empty: {
+    ResultType: EmptyHttpResult
+  }
+}

@@ -1,0 +1,32 @@
+﻿{
+  FileContent: {
+    ResultType: FileContentHttpResult,
+    FileDownloadName: file.txt,
+    EnableRangeProcessing: false,
+    ContentType: text/plain,
+    FileLength: 11
+  },
+  FileStream: {
+    ResultType: FileStreamHttpResult,
+    EnableRangeProcessing: false,
+    ContentType: text/plain,
+    FileLength: 11
+  },
+  PushStream: {
+    ResultType: PushStreamHttpResult,
+    EnableRangeProcessing: false,
+    ContentType: text/plain
+  },
+  PhysicalFile: {
+    ResultType: PhysicalFileHttpResult,
+    EnableRangeProcessing: false,
+    ContentType: text/plain,
+    FileName: target.txt
+  },
+  VirtualFile: {
+    ResultType: VirtualFileHttpResult,
+    EnableRangeProcessing: false,
+    ContentType: text/plain,
+    FileName: target.txt
+  }
+}

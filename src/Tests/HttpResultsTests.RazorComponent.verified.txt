@@ -1,0 +1,8 @@
+﻿{
+  ResultType: RazorComponentResult,
+  ComponentType: HttpResultsTests.TestComponent,
+  PreventStreamingRendering: false,
+  Parameters: {
+    Title: the title
+  }
+}

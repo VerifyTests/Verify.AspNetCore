@@ -103,6 +103,51 @@ public class Tests
         return Verify(result);
     }
 
+    [Test]
+    public Task ObjectResultSubclasses()
+    {
+        var value = new
+        {
+            Name = "item"
+        };
+        var routeValues = new
+        {
+            id = 1
+        };
+        return Verify(new
+        {
+            Ok = new OkObjectResult(value),
+            Created = new CreatedResult("/items/1", value),
+            Accepted = new AcceptedResult("/items/1", value),
+            CreatedAtAction = new CreatedAtActionResult("Get", "Items", routeValues, value),
+            AcceptedAtAction = new AcceptedAtActionResult("Get", "Items", routeValues, value),
+            CreatedAtRoute = new CreatedAtRouteResult("route", routeValues, value),
+            AcceptedAtRoute = new AcceptedAtRouteResult("route", routeValues, value)
+        });
+    }
+
+    [Test]
+    public Task StatusCodeResultSubclasses() =>
+        Verify(new
+        {
+            Ok = new OkResult(),
+            NotFound = new NotFoundResult(),
+            AntiforgeryValidationFailed = new AntiforgeryValidationFailedResult(),
+            StatusCode = new StatusCodeResult(418)
+        });
+
+    [Test]
+    public Task ActionResultOfT()
+    {
+        ActionResult<string> withValue = "the value";
+        ActionResult<string> withResult = new NotFoundResult();
+        return Verify(new
+        {
+            WithValue = withValue,
+            WithResult = withResult
+        });
+    }
+
     #region TestController
 
     [Test]

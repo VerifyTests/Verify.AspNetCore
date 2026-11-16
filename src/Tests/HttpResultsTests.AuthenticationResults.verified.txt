@@ -1,0 +1,45 @@
+﻿{
+  Challenge: {
+    ResultType: ChallengeHttpResult,
+    Scheme: scheme,
+    Properties: {
+      key: value
+    }
+  },
+  Forbid: {
+    ResultType: ForbidHttpResult,
+    Schemes: [
+      scheme1,
+      scheme2
+    ],
+    Properties: {
+      key: value
+    }
+  },
+  SignIn: {
+    ResultType: SignInHttpResult,
+    Scheme: scheme,
+    Principal: {
+      Identities: [
+        {
+          Claims: [
+            {
+              name: user
+            }
+          ],
+          AuthenticationType: scheme
+        }
+      ]
+    },
+    Properties: {
+      key: value
+    }
+  },
+  SignOut: {
+    ResultType: SignOutHttpResult,
+    Scheme: scheme,
+    Properties: {
+      key: value
+    }
+  }
+}

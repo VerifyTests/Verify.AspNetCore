@@ -1,11 +1,11 @@
 ﻿abstract class ResultConverter<T> :
     WriteOnlyJsonConverter<T>
-    where T : ActionResult
+    where T : notnull
 {
     public override void Write(VerifyJsonWriter writer, T result)
     {
         writer.WriteStartObject();
-        writer.WriteMember(result, result.GetType().Name, "ResultType");
+        writer.WriteMember(result, ResultTypeName.Get(result.GetType()), "ResultType");
         InnerWrite(writer, result);
         writer.WriteEndObject();
     }
